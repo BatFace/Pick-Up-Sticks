@@ -1,0 +1,245 @@
+/* Element selectors */
+
+html, body {
+    font-family: DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, Monaco, Lucida Console, monospace;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+form {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/*At-rules*/
+
+@font-face {
+    font-family: font-awesome;
+    src: url(../lib/font-awesome/fonts/fontawesome-webfont.woff)
+}
+
+/* Class Selectors */
+
+.absHundred {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.active {
+    display: block;
+}
+
+.buttonText {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.flip-clock-wrapper{
+    margin: 0em !important;
+}
+
+.gameButton {
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    display: table;
+    float: left;
+    font-family: font-awesome;
+    height: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 40%;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    margin: 0;
+    vertical-align: middle;
+    -webkit-appearance: none;
+}
+
+.levelDisplay {
+    border: none;
+    font-family: DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, Monaco, Lucida Console, monospace;
+    font-size: 1.8em;
+    text-align: center;
+    vertical-align: middle;
+    -moz-appearance: textfield;
+}
+
+.noSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.notActive {
+    display: none;
+}
+
+.relHundred {
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.innerRightSubContainer {
+    height: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.screenStyle {
+    background: #edfdff;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.textContainer {
+    background: none;
+    font-size: 2em;
+}
+
+.timerContainer {
+    width: 85%;
+}
+
+.symbol {
+    font-family: font-awesome;
+}
+
+/* ID Selectors */
+
+#buttonsContainer {
+    height: 60%;
+    width: 100%;
+}
+
+#innerRightContainer {
+    height: 90%;
+    width: 90%;
+}
+
+#leftSide {
+    float: left;
+    height: 100%;
+    width: 70%;
+}
+
+#levelDisplayContainer {
+    background: #edfdff;
+    position: absolute;
+    width: 100%;
+}
+
+#levelDisplayContainer.formField {
+    margin: 1%;
+    padding: 4%;
+    text-align: center;
+}
+
+#playPauseButton {
+    background-color: #6CBB3C;
+
+    box-shadow: 0px 6px 0px #348017;
+    -moz-box-shadow: 0px 6px 0px #348017;
+    -webkit-box-shadow: 0px 6px 0px #348017;
+}
+
+#playPauseButton:active.enabled {
+    box-shadow: 0px 3px 0px #348017;
+    -moz-box-shadow: 0px 3px 0px #348017;
+    -webkit-box-shadow: 0px 3px 0px #348017;
+    position: relative;
+    top: 6px;
+}
+
+#playPauseButton.disabled {
+    background-color: #AFDC94;
+
+    box-shadow: 0px 6px 0px #92AB83;
+    -moz-box-shadow: 0px 6px 0px #92AB83;
+    -webkit-box-shadow: 0px 6px 0px #92AB83;
+}
+
+#restartButton {
+    background-color: #26C9FF;
+
+    box-shadow: 0px 6px 0px #00698C;
+    -moz-box-shadow: 0px 6px 0px #00698C;
+    -webkit-box-shadow: 0px 6px 0px #00698C;
+}
+
+#restartButton:active {
+    box-shadow: 0px 3px 0px #00698C;
+    -moz-box-shadow: 0px 3px 0px #00698C;
+    -webkit-box-shadow: 0px 3px 0px #00698C;
+    position: relative;
+    top: 6px;
+}
+
+#rightSide {
+    float: right;
+    height: 100%;
+    position: relative;
+    width: 30%;
+}
+
+#screenContainer {
+    float: none;
+    height: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7.5%;
+    position: relative;
+    width: 85%;
+}
+
+#title {
+    background: #f3ed4e;
+    border-color: #FF26C9;
+    border-style: dotted;
+    border-width: thick;
+    color: #FF26C9;
+
+    text-align: center;
+    text-shadow: 2px 2px #FFF;
+    width: 100%;
+}
+
+#wholeContainer {
+    /* TODO: Media Queries */
+    /*height:100%;*/
+    /*width:100%;*/
+    background: #34282c;
+    height: 500px;
+    width: 800px;
+}
+
+/* Mixed selectors to vertically align and center */
+
+.textContainer,
+.timerContainer,
+#buttonsContainer,
+#innerRightContainer,
+#levelDisplayContainer,
+#levelDisplayContainer.formField {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+}
