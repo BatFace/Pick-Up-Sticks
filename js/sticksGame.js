@@ -2,6 +2,7 @@ define(['../js/timer.js', '../lib/jquery/dist/jquery.min.js', '../lib/d3/d3.min.
     return function () {
 
         var globalTimer = timer;
+        var gameLevel = 1;
 
         //override timer's OnFinish method
         globalTimer.OnFinish = loseGame;
@@ -17,23 +18,32 @@ define(['../js/timer.js', '../lib/jquery/dist/jquery.min.js', '../lib/d3/d3.min.
         var highCrossingLimit = 0.9;
 
         $('#restartButton').bind('click', restartGame);
+        
+        $('#levelNumericControl').bind('focusout', function(){
+            if($('#levelNumericControl').val() != gameLevel){
+                restartGame();
+            }
+        });
+
+        pulseLevelDisplay();
         restartGame();
 
         function restartGame() {
+
             globalTimer.Reset();
+            makePauseScreenElementActive('#startText');
+
             if (!$('#levelNumericControl')[0].checkValidity()) {
                 disablePlayPauseButton();
 
                 // Trick to make the browser display native HTML5 error
                 // for the selected level number
-                $('#myForm').find(':submit').click();
+                $('#gameLevelForm').find(':submit').click();
             }
             else {
                 enablePlayPauseButton();
                 refresh();
             }
-
-            makePauseScreenElementActive('#startText');
         }
 
         function makePauseScreenElementActive(element) {
@@ -45,7 +55,7 @@ define(['../js/timer.js', '../lib/jquery/dist/jquery.min.js', '../lib/d3/d3.min.
         function refresh() {
             d3.select("svg").remove();
 
-            var gameLevel = $('#levelNumericControl').val();
+            gameLevel = $('#levelNumericControl').val();
             var finalStickIndex = gameLevel - 1;
             var dataSet = [];
 
@@ -264,11 +274,18 @@ define(['../js/timer.js', '../lib/jquery/dist/jquery.min.js', '../lib/d3/d3.min.
             globalTimer.Stop();
             makePauseScreenElementActive('#wonText');
             disablePlayPauseButton();
+            pulseLevelDisplay();
         }
 
         function loseGame() {
             makePauseScreenElementActive('#lostText');
             disablePlayPauseButton();
+        }
+
+        function pulseLevelDisplay(){
+            $("#levelNumericControl")
+                .fadeOut(100).fadeIn(100)
+                .fadeOut(100).fadeIn(100);
         }
     };
 });

@@ -18,7 +18,7 @@
                     <span id="startText" class="active">Press <span
                             class='symbol'>&#xf04b;&#xf04c;</span> to start.</span>
                     <span id="pausedText" class="notActive">Paused. Press <span class='symbol'>&#xf04b;&#xf04c;</span> to continue.</span>
-                    <span id="wonText" class="notActive">You won! Why not try a different level?</span>
+                    <span id="wonText" class="notActive">You won! Why not pick a different level?</span>
                     <span id="lostText" class="notActive">You lost. That's a shame.</span>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="innerRightSubContainer">
                     <div class="relHundred">
-                        <form class="verticalAlignMiddle">
+                        <form id="gameLevelForm" class="verticalAlignMiddle">
                             <div id ="levelDisplayContainer" class="formField">
                                 <label class="levelDisplay" for="levelNumericControl">Level</label>
                                 <input class="levelDisplay" type="number" id="levelNumericControl" min="1" max="999"
