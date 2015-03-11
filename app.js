@@ -1,7 +1,12 @@
 requirejs.config({
-    baseUrl: 'lib',
     paths: {
-        js: '../js'
+        jquery: 'lib/jquery/dist/jquery.min',
+        flipClock: 'lib/FlipClock/compiled/flipclock.min'
+    },
+    shim:{
+        'flipClock':{
+            deps: ['jquery']
+        }
     }
 });
 

@@ -1,4 +1,4 @@
-define(['../lib/jquery/dist/jquery.min.js', '../lib/FlipClock/compiled/flipclock.min.js'], function () {
+define(['jquery', 'flipClock'], function ($) {
     var clock;
     var timeLimit = 31;
 

@@ -1,4 +1,4 @@
-define(['../js/timer.js', '../lib/jquery/dist/jquery.min.js', '../lib/d3/d3.min.js'], function (timer) {
+define(['../js/timer.js', 'jquery', '../lib/d3/d3.min.js'], function (timer, $) {
     return function () {
 
         var globalTimer = timer;
@@ -18,14 +18,19 @@ define(['../js/timer.js', '../lib/jquery/dist/jquery.min.js', '../lib/d3/d3.min.
         var highCrossingLimit = 0.9;
 
         $('#restartButton').bind('click', restartGame);
-        
-        $('#levelNumericControl').bind('focusout', function(){
-            if($('#levelNumericControl').val() != gameLevel){
-                restartGame();
-            }
+
+        // Primitive 'debounce' to stop restartGame being called
+        // every time up/down spinner pressed
+        var windowTimeOut;
+        $('#levelNumericControl').change(function() {
+            clearTimeout(windowTimeOut);
+            windowTimeOut = setTimeout(function() {
+                if($('#levelNumericControl').val() != gameLevel){
+                            restartGame();
+                }
+            }, 200);
         });
 
-        pulseLevelDisplay();
         restartGame();
 
         function restartGame() {
