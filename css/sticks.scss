@@ -1,0 +1,220 @@
+@import "../lib/FlipClock/compiled/flipclock.css";
+@import "mixins";
+
+$invalidInputColor: #FFC0CB;
+$fuschia: #FF26C9;
+$blueGrey: #EDFDFF;
+$playButtonColor: #6CBB3C;
+$playButtonActiveColor: #348017;
+$restartButtonColor: #26C9FF;
+
+@font-face {
+  font-family: font-awesome;
+  src: url('../lib/font-awesome/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../lib/font-awesome/fonts/fontawesome-webfont.woff') format('woff'),
+  url('../lib/font-awesome/fonts/fontawesome-webfont.ttf')  format('truetype'),
+  url('../lib/font-awesome/fonts/fontawesome-webfont.svg#fontawesome-webfont') format('svg');
+}
+
+html, body, input {
+  font-family:  DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.symbol {
+  font-family: font-awesome;
+}
+
+.wholeContainer {
+  /* TODO: Media Queries */
+  /*height:100%;*/
+  /*width:100%;*/
+  background: #34282c;
+  height: 500px;
+  width: 800px;
+  @include user-select(none);
+}
+
+.verticalAlignAndCenter {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  @include transform(translateX(-50%) translateY(-50%));
+}
+
+.biggest {
+  height: 100%;
+  width: 100%;
+}
+
+.active {
+  display: block;
+}
+
+.notActive {
+  display: none;
+}
+
+
+.leftSide {
+  float: left;
+  height: 100%;
+  width: 70%;
+
+    .screenContainer {
+      float: none;
+      height: 85%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 7.5%;
+      position: relative;
+      width: 85%;
+    }
+
+    .textContainer {
+      background: none;
+      font-size: 2em;
+      text-align: left;
+      @extend .verticalAlignAndCenter;
+    }
+
+    .gameScreen {
+      background: $blueGrey;
+      position: absolute;
+      @extend .biggest;
+    }
+}
+
+.rightSide {
+  float: right;
+  height: 100%;
+  position: relative;
+  width: 30%;
+
+    .innerRightContainer {
+      height: 90%;
+      width: 90%;
+      @extend .verticalAlignAndCenter;
+    }
+
+    .absHundred {
+      @extend .biggest;
+      position: absolute;
+    }
+
+    .innerRightSubContainer {
+      height: 25%;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+
+      .relHundred {
+        @extend .biggest;
+        position: relative;
+
+        .title {
+          @extend .verticalAlignAndCenter;
+          background: #f3ed4e;
+          border-color: $fuschia;
+          border-style: dotted;
+          border-width: thick;
+          color: $fuschia;
+          text-shadow: 2px 2px #FFF;
+          width: 100%;
+          font-size: 2em;
+        }
+
+        input:invalid {
+          background-color: $invalidInputColor;
+        }
+
+        .buttonText {
+          display: table-cell;
+          vertical-align: middle;
+        }
+
+        .gameButton {
+          @include border-radius(8px);
+          color: #fff;
+          cursor: pointer;
+          display: table;
+          float: left;
+          font-family: font-awesome;
+          height: 100%;
+          width: 40%;
+          margin-left: 5%;
+          margin-right: 5%;
+          position: relative;
+          vertical-align: middle;
+        }
+
+        .buttonsContainer {
+          height: 60%;
+          width: 100%;
+          @extend .verticalAlignAndCenter;
+        }
+
+        .levelDisplayContainer {
+          background: $blueGrey;
+          position: absolute;
+          width: 100%;
+          @extend .verticalAlignAndCenter;
+        }
+
+        .levelDisplay {
+          font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
+          font-size: 1.8em;
+          vertical-align: middle;
+          width: 90%;
+        }
+
+        .levelDisplayContainer.formField {
+          margin: 1%;
+          padding: 4%;
+        }
+
+        .activeButton
+        {
+          position: relative;
+          top: 6px;
+        }
+
+        .playPauseButton {
+          background-color: $playButtonColor;
+          @include box-shadow(0, 6px, 0, darken( $playButtonColor, 10% ));
+        }
+
+        .playPauseButton:active.enabled {
+          @extend .activeButton;
+          @include box-shadow(0, 3px, 0, darken( $playButtonActiveColor, 10%));
+        }
+
+        .playPauseButton.disabled {
+          background-color: lighten( $playButtonColor, 20% );
+          @include box-shadow(0, 6px, 0, $playButtonColor);
+        }
+
+        .restartButton {
+          background-color: $restartButtonColor;
+          @include box-shadow(0, 6px, 0, darken($restartButtonColor, 10%));
+        }
+
+        .restartButton:active {
+          @extend .activeButton;
+          @include box-shadow(0, 3px, 0, darken($restartButtonColor, 10%));
+        }
+
+        .timerContainer {
+          width: 85%;
+          @extend .verticalAlignAndCenter;
+        }
+
+        .flip-clock-wrapper{
+          margin: 0 !important;
+        }
+    }
+  }
+}

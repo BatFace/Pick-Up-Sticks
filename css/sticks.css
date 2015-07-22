@@ -1,241 +1,162 @@
-/* Element selectors */
-
-html, body {
-    font-family: DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, Monaco, Lucida Console, monospace;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-}
-
-form {
-    margin: 0 auto;
-    text-align: center;
-}
-
-input:invalid {
-    background-color: #FFC0CB;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    opacity: 1;
-}
-
-/*At-rules*/
-
+@import url(../lib/FlipClock/compiled/flipclock.css);
 @font-face {
-    font-family: font-awesome;
-    src: url(../lib/font-awesome/fonts/fontawesome-webfont.woff)
-}
-
-/* Class Selectors */
-
-.absHundred {
-    height: 100%;
-    position: absolute;
-    width: 100%;
-}
-
-.active {
-    display: block;
-}
-
-.buttonText {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.flip-clock-wrapper{
-    margin: 0em !important;
-}
-
-.gameButton {
-    border-radius: 8px;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    color: #fff;
-    cursor: pointer;
-    display: table;
-    float: left;
-    font-family: font-awesome;
-    height: 100%;
-    margin-left: 5%;
-    margin-right: 5%;
-    position: relative;
-    text-align: center;
-    vertical-align: middle;
-    width: 40%;
-}
-
-.levelDisplay {
-    font-family: DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, Monaco, Lucida Console, monospace;
-    font-size: 1.8em;
-    text-align: center;
-    vertical-align: middle;
-    width: 90%;
-}
-
-.noSelect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.notActive {
-    display: none;
-}
-
-.relHundred {
-    height: 100%;
-    position: relative;
-    width: 100%;
-}
-
-.innerRightSubContainer {
-    height: 25%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-}
-
-.screenStyle {
-    background: #edfdff;
-    height: 100%;
-    position: absolute;
-    width: 100%;
-}
-
-.textContainer {
-    background: none;
-    font-size: 2em;
-}
-
-.timerContainer {
-    width: 85%;
-}
+  font-family: font-awesome;
+  src: url("../lib/font-awesome/fonts/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("../lib/font-awesome/fonts/fontawesome-webfont.woff") format("woff"), url("../lib/font-awesome/fonts/fontawesome-webfont.ttf") format("truetype"), url("../lib/font-awesome/fonts/fontawesome-webfont.svg#fontawesome-webfont") format("svg"); }
+html, body, input {
+  font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center; }
 
 .symbol {
-    font-family: font-awesome;
-}
+  font-family: font-awesome; }
 
-/* ID Selectors */
+.wholeContainer {
+  /* TODO: Media Queries */
+  /*height:100%;*/
+  /*width:100%;*/
+  background: #34282c;
+  height: 500px;
+  width: 800px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default; }
 
-#buttonsContainer {
-    height: 60%;
-    width: 100%;
-}
+.verticalAlignAndCenter, .leftSide .textContainer, .rightSide .innerRightContainer, .rightSide .innerRightSubContainer .relHundred .title, .rightSide .innerRightSubContainer .relHundred .buttonsContainer, .rightSide .innerRightSubContainer .relHundred .levelDisplayContainer, .rightSide .innerRightSubContainer .relHundred .timerContainer {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%); }
 
-#innerRightContainer {
-    height: 90%;
-    width: 90%;
-}
+.biggest, .leftSide .gameScreen, .rightSide .absHundred, .rightSide .innerRightSubContainer .relHundred {
+  height: 100%;
+  width: 100%; }
 
-#leftSide {
-    float: left;
-    height: 100%;
-    width: 70%;
-}
+.active {
+  display: block; }
 
-#levelDisplayContainer {
-    background: #edfdff;
-    position: absolute;
-    width: 100%;
-}
+.notActive {
+  display: none; }
 
-#levelDisplayContainer.formField {
-    margin: 1%;
-    padding: 4%;
-    text-align: center;
-}
-
-#playPauseButton {
-    background-color: #6CBB3C;
-    box-shadow: 0px 6px 0px #348017;
-    -moz-box-shadow: 0px 6px 0px #348017;
-    -webkit-box-shadow: 0px 6px 0px #348017;
-}
-
-#playPauseButton:active.enabled {
-    box-shadow: 0px 3px 0px #348017;
-    -moz-box-shadow: 0px 3px 0px #348017;
-    -webkit-box-shadow: 0px 3px 0px #348017;
-    position: relative;
-    top: 6px;
-}
-
-#playPauseButton.disabled {
-    background-color: #AFDC94;
-    box-shadow: 0px 6px 0px #92AB83;
-    -moz-box-shadow: 0px 6px 0px #92AB83;
-    -webkit-box-shadow: 0px 6px 0px #92AB83;
-}
-
-#restartButton {
-    background-color: #26C9FF;
-    box-shadow: 0px 6px 0px #00698C;
-    -moz-box-shadow: 0px 6px 0px #00698C;
-    -webkit-box-shadow: 0px 6px 0px #00698C;
-}
-
-#restartButton:active {
-    box-shadow: 0px 3px 0px #00698C;
-    -moz-box-shadow: 0px 3px 0px #00698C;
-    -webkit-box-shadow: 0px 3px 0px #00698C;
-    position: relative;
-    top: 6px;
-}
-
-#rightSide {
-    float: right;
-    height: 100%;
-    position: relative;
-    width: 30%;
-}
-
-#screenContainer {
+.leftSide {
+  float: left;
+  height: 100%;
+  width: 70%; }
+  .leftSide .screenContainer {
     float: none;
     height: 85%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 7.5%;
     position: relative;
-    width: 85%;
-}
+    width: 85%; }
+  .leftSide .textContainer {
+    background: none;
+    font-size: 2em;
+    text-align: left; }
+  .leftSide .gameScreen {
+    background: #EDFDFF;
+    position: absolute; }
 
-#title {
-    background: #f3ed4e;
-    border-color: #FF26C9;
-    border-style: dotted;
-    border-width: thick;
-    color: #FF26C9;
-    text-align: center;
-    text-shadow: 2px 2px #FFF;
-    width: 100%;
-}
+.rightSide {
+  float: right;
+  height: 100%;
+  position: relative;
+  width: 30%; }
+  .rightSide .innerRightContainer {
+    height: 90%;
+    width: 90%; }
+  .rightSide .absHundred {
+    position: absolute; }
+  .rightSide .innerRightSubContainer {
+    height: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%; }
+    .rightSide .innerRightSubContainer .relHundred {
+      position: relative; }
+      .rightSide .innerRightSubContainer .relHundred .title {
+        background: #f3ed4e;
+        border-color: #FF26C9;
+        border-style: dotted;
+        border-width: thick;
+        color: #FF26C9;
+        text-shadow: 2px 2px #FFF;
+        width: 100%;
+        font-size: 2em; }
+      .rightSide .innerRightSubContainer .relHundred input:invalid {
+        background-color: #FFC0CB; }
+      .rightSide .innerRightSubContainer .relHundred .buttonText {
+        display: table-cell;
+        vertical-align: middle; }
+      .rightSide .innerRightSubContainer .relHundred .gameButton {
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        border-radius: 8px;
+        color: #fff;
+        cursor: pointer;
+        display: table;
+        float: left;
+        font-family: font-awesome;
+        height: 100%;
+        width: 40%;
+        margin-left: 5%;
+        margin-right: 5%;
+        position: relative;
+        vertical-align: middle; }
+      .rightSide .innerRightSubContainer .relHundred .buttonsContainer {
+        height: 60%;
+        width: 100%; }
+      .rightSide .innerRightSubContainer .relHundred .levelDisplayContainer {
+        background: #EDFDFF;
+        position: absolute;
+        width: 100%; }
+      .rightSide .innerRightSubContainer .relHundred .levelDisplay {
+        font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
+        font-size: 1.8em;
+        vertical-align: middle;
+        width: 90%; }
+      .rightSide .innerRightSubContainer .relHundred .levelDisplayContainer.formField {
+        margin: 1%;
+        padding: 4%; }
+      .rightSide .innerRightSubContainer .relHundred .activeButton, .rightSide .innerRightSubContainer .relHundred .playPauseButton.enabled:active, .rightSide .innerRightSubContainer .relHundred .restartButton:active {
+        position: relative;
+        top: 6px; }
+      .rightSide .innerRightSubContainer .relHundred .playPauseButton {
+        background-color: #6CBB3C;
+        -webkit-box-shadow: 0 6px 0 #569430;
+        -moz-box-shadow: 0 6px 0 #569430;
+        box-shadow: 0 6px 0 #569430; }
+      .rightSide .innerRightSubContainer .relHundred .playPauseButton:active.enabled {
+        -webkit-box-shadow: 0 3px 0 #22550f;
+        -moz-box-shadow: 0 3px 0 #22550f;
+        box-shadow: 0 3px 0 #22550f; }
+      .rightSide .innerRightSubContainer .relHundred .playPauseButton.disabled {
+        background-color: #a4d885;
+        -webkit-box-shadow: 0 6px 0 #6CBB3C;
+        -moz-box-shadow: 0 6px 0 #6CBB3C;
+        box-shadow: 0 6px 0 #6CBB3C; }
+      .rightSide .innerRightSubContainer .relHundred .restartButton {
+        background-color: #26C9FF;
+        -webkit-box-shadow: 0 6px 0 #00b6f2;
+        -moz-box-shadow: 0 6px 0 #00b6f2;
+        box-shadow: 0 6px 0 #00b6f2; }
+      .rightSide .innerRightSubContainer .relHundred .restartButton:active {
+        -webkit-box-shadow: 0 3px 0 #00b6f2;
+        -moz-box-shadow: 0 3px 0 #00b6f2;
+        box-shadow: 0 3px 0 #00b6f2; }
+      .rightSide .innerRightSubContainer .relHundred .timerContainer {
+        width: 85%; }
+      .rightSide .innerRightSubContainer .relHundred .flip-clock-wrapper {
+        margin: 0 !important; }
 
-#wholeContainer {
-    /* TODO: Media Queries */
-    /*height:100%;*/
-    /*width:100%;*/
-    background: #34282c;
-    height: 500px;
-    width: 800px;
-}
-
-/* Mixed selectors to vertically align and center */
-
-.textContainer,
-.timerContainer,
-#buttonsContainer,
-#innerRightContainer,
-#levelDisplayContainer{
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-}
+/*# sourceMappingURL=sticks.css.map */
