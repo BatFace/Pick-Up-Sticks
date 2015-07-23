@@ -26,7 +26,7 @@ html, body, input {
   user-select: none;
   cursor: default; }
 
-.verticalAlignAndCenter, .leftSide .textContainer, .rightSide .innerRightContainer, .rightSide .innerRightSubContainer .relHundred .title, .rightSide .innerRightSubContainer .relHundred .buttonsContainer, .rightSide .innerRightSubContainer .relHundred .levelDisplayContainer, .rightSide .innerRightSubContainer .relHundred .timerContainer {
+.verticalAlignAndCenter, .leftSide .gameScreen #pauseScreenText, .rightSide .innerRightContainer, .rightSide .absHundred .innerRightSubContainer .relHundred .title, .rightSide .absHundred .innerRightSubContainer .relHundred #buttonsContainer, .rightSide .absHundred .innerRightSubContainer .relHundred #levelDisplayContainer, .rightSide .absHundred .innerRightSubContainer .relHundred #timerContainer {
   left: 50%;
   top: 50%;
   position: absolute;
@@ -36,7 +36,7 @@ html, body, input {
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%); }
 
-.biggest, .leftSide .gameScreen, .rightSide .absHundred, .rightSide .innerRightSubContainer .relHundred {
+.biggest, .leftSide .gameScreen, .rightSide .absHundred, .rightSide .absHundred .innerRightSubContainer .relHundred {
   height: 100%;
   width: 100%; }
 
@@ -50,7 +50,7 @@ html, body, input {
   float: left;
   height: 100%;
   width: 70%; }
-  .leftSide .screenContainer {
+  .leftSide #screenContainer {
     float: none;
     height: 85%;
     margin-left: auto;
@@ -58,13 +58,13 @@ html, body, input {
     margin-top: 7.5%;
     position: relative;
     width: 85%; }
-  .leftSide .textContainer {
-    background: none;
-    font-size: 2em;
-    text-align: left; }
   .leftSide .gameScreen {
     background: #EDFDFF;
     position: absolute; }
+    .leftSide .gameScreen #pauseScreenText {
+      background: none;
+      font-size: 2em;
+      text-align: left; }
 
 .rightSide {
   float: right;
@@ -76,87 +76,87 @@ html, body, input {
     width: 90%; }
   .rightSide .absHundred {
     position: absolute; }
-  .rightSide .innerRightSubContainer {
-    height: 25%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%; }
-    .rightSide .innerRightSubContainer .relHundred {
-      position: relative; }
-      .rightSide .innerRightSubContainer .relHundred .title {
-        background: #f3ed4e;
-        border-color: #FF26C9;
-        border-style: dotted;
-        border-width: thick;
-        color: #FF26C9;
-        text-shadow: 2px 2px #FFF;
-        width: 100%;
-        font-size: 2em; }
-      .rightSide .innerRightSubContainer .relHundred input:invalid {
-        background-color: #FFC0CB; }
-      .rightSide .innerRightSubContainer .relHundred .buttonText {
-        display: table-cell;
-        vertical-align: middle; }
-      .rightSide .innerRightSubContainer .relHundred .gameButton {
-        -webkit-border-radius: 8px;
-        -moz-border-radius: 8px;
-        -ms-border-radius: 8px;
-        border-radius: 8px;
-        color: #fff;
-        cursor: pointer;
-        display: table;
-        float: left;
-        font-family: font-awesome;
-        height: 100%;
-        width: 40%;
-        margin-left: 5%;
-        margin-right: 5%;
-        position: relative;
-        vertical-align: middle; }
-      .rightSide .innerRightSubContainer .relHundred .buttonsContainer {
-        height: 60%;
-        width: 100%; }
-      .rightSide .innerRightSubContainer .relHundred .levelDisplayContainer {
-        background: #EDFDFF;
-        position: absolute;
-        width: 100%; }
-      .rightSide .innerRightSubContainer .relHundred .levelDisplay {
-        font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
-        font-size: 1.8em;
-        vertical-align: middle;
-        width: 90%; }
-      .rightSide .innerRightSubContainer .relHundred .levelDisplayContainer.formField {
-        margin: 1%;
-        padding: 4%; }
-      .rightSide .innerRightSubContainer .relHundred .activeButton, .rightSide .innerRightSubContainer .relHundred .playPauseButton.enabled:active, .rightSide .innerRightSubContainer .relHundred .restartButton:active {
-        position: relative;
-        top: 6px; }
-      .rightSide .innerRightSubContainer .relHundred .playPauseButton {
-        background-color: #6CBB3C;
-        -webkit-box-shadow: 0 6px 0 #569430;
-        -moz-box-shadow: 0 6px 0 #569430;
-        box-shadow: 0 6px 0 #569430; }
-      .rightSide .innerRightSubContainer .relHundred .playPauseButton:active.enabled {
-        -webkit-box-shadow: 0 3px 0 #22550f;
-        -moz-box-shadow: 0 3px 0 #22550f;
-        box-shadow: 0 3px 0 #22550f; }
-      .rightSide .innerRightSubContainer .relHundred .playPauseButton.disabled {
-        background-color: #a4d885;
-        -webkit-box-shadow: 0 6px 0 #6CBB3C;
-        -moz-box-shadow: 0 6px 0 #6CBB3C;
-        box-shadow: 0 6px 0 #6CBB3C; }
-      .rightSide .innerRightSubContainer .relHundred .restartButton {
-        background-color: #26C9FF;
-        -webkit-box-shadow: 0 6px 0 #00b6f2;
-        -moz-box-shadow: 0 6px 0 #00b6f2;
-        box-shadow: 0 6px 0 #00b6f2; }
-      .rightSide .innerRightSubContainer .relHundred .restartButton:active {
-        -webkit-box-shadow: 0 3px 0 #00b6f2;
-        -moz-box-shadow: 0 3px 0 #00b6f2;
-        box-shadow: 0 3px 0 #00b6f2; }
-      .rightSide .innerRightSubContainer .relHundred .timerContainer {
-        width: 85%; }
-      .rightSide .innerRightSubContainer .relHundred .flip-clock-wrapper {
-        margin: 0 !important; }
+    .rightSide .absHundred .innerRightSubContainer {
+      height: 25%;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%; }
+      .rightSide .absHundred .innerRightSubContainer .relHundred {
+        position: relative; }
+        .rightSide .absHundred .innerRightSubContainer .relHundred .title {
+          background: #f3ed4e;
+          border-color: #FF26C9;
+          border-style: dotted;
+          border-width: thick;
+          color: #FF26C9;
+          text-shadow: 2px 2px #FFF;
+          width: 100%;
+          font-size: 2em; }
+        .rightSide .absHundred .innerRightSubContainer .relHundred input:invalid {
+          background-color: #FFC0CB; }
+        .rightSide .absHundred .innerRightSubContainer .relHundred .buttonText {
+          display: table-cell;
+          vertical-align: middle; }
+        .rightSide .absHundred .innerRightSubContainer .relHundred .gameButton {
+          -webkit-border-radius: 8px;
+          -moz-border-radius: 8px;
+          -ms-border-radius: 8px;
+          border-radius: 8px;
+          color: #fff;
+          cursor: pointer;
+          display: table;
+          float: left;
+          font-family: font-awesome;
+          height: 100%;
+          width: 40%;
+          margin-left: 5%;
+          margin-right: 5%;
+          position: relative;
+          vertical-align: middle; }
+        .rightSide .absHundred .innerRightSubContainer .relHundred #buttonsContainer {
+          height: 60%;
+          width: 100%; }
+        .rightSide .absHundred .innerRightSubContainer .relHundred #levelDisplayContainer {
+          background: #EDFDFF;
+          position: absolute;
+          width: 100%; }
+        .rightSide .absHundred .innerRightSubContainer .relHundred #levelDisplayContainer.formField {
+          margin: 1%;
+          padding: 4%; }
+        .rightSide .absHundred .innerRightSubContainer .relHundred .levelDisplay {
+          font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
+          font-size: 1.8em;
+          vertical-align: middle;
+          width: 90%; }
+        .rightSide .absHundred .innerRightSubContainer .relHundred .activeButton, .rightSide .absHundred .innerRightSubContainer .relHundred #playPauseButton.enabled:active, .rightSide .absHundred .innerRightSubContainer .relHundred #restartButton:active {
+          position: relative;
+          top: 6px; }
+        .rightSide .absHundred .innerRightSubContainer .relHundred #playPauseButton {
+          background-color: #6CBB3C;
+          -webkit-box-shadow: 0 6px 0 #569430;
+          -moz-box-shadow: 0 6px 0 #569430;
+          box-shadow: 0 6px 0 #569430; }
+        .rightSide .absHundred .innerRightSubContainer .relHundred #playPauseButton:active.enabled {
+          -webkit-box-shadow: 0 3px 0 #22550f;
+          -moz-box-shadow: 0 3px 0 #22550f;
+          box-shadow: 0 3px 0 #22550f; }
+        .rightSide .absHundred .innerRightSubContainer .relHundred #playPauseButton.disabled {
+          background-color: #a4d885;
+          -webkit-box-shadow: 0 6px 0 #6CBB3C;
+          -moz-box-shadow: 0 6px 0 #6CBB3C;
+          box-shadow: 0 6px 0 #6CBB3C; }
+        .rightSide .absHundred .innerRightSubContainer .relHundred #restartButton {
+          background-color: #26C9FF;
+          -webkit-box-shadow: 0 6px 0 #00b6f2;
+          -moz-box-shadow: 0 6px 0 #00b6f2;
+          box-shadow: 0 6px 0 #00b6f2; }
+        .rightSide .absHundred .innerRightSubContainer .relHundred #restartButton:active {
+          -webkit-box-shadow: 0 3px 0 #00b6f2;
+          -moz-box-shadow: 0 3px 0 #00b6f2;
+          box-shadow: 0 3px 0 #00b6f2; }
+        .rightSide .absHundred .innerRightSubContainer .relHundred #timerContainer {
+          width: 85%; }
+        .rightSide .absHundred .innerRightSubContainer .relHundred .flip-clock-wrapper {
+          margin: 0 !important; }
 
 /*# sourceMappingURL=sticks.css.map */

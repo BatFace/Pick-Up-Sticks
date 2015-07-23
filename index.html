@@ -10,10 +10,10 @@
 
 <div class="wholeContainer">
     <div class="leftSide">
-        <div class="screenContainer">
+        <div id="screenContainer">
             <div id="gameArea" class="gameScreen"></div>
             <div id="pauseScreen" class="gameScreen">
-                <div class="textContainer" id="pauseScreenText">
+                <div id="pauseScreenText">
                     <span id="startText" class="active">Press <span
                             class='symbol'>&#xf04b;&#xf04c;</span> to start.</span>
                     <span id="pausedText" class="notActive">Paused. Press <span class='symbol'>&#xf04b;&#xf04c;</span> to continue.</span>
@@ -36,7 +36,7 @@
                 <div class="innerRightSubContainer">
                     <div class="relHundred">
                         <form id="gameLevelForm" class="verticalAlignMiddle">
-                            <div class ="levelDisplayContainer formField">
+                            <div id ="levelDisplayContainer" class="formField">
                                 <label class="levelDisplay" for="levelNumericControl">Level</label>
                                 <input class="levelDisplay" type="number" id="levelNumericControl" min="1" max="999"
                                        step="1" value="1"/>
@@ -47,11 +47,11 @@
                 </div>
                 <div class="innerRightSubContainer">
                     <div class="relHundred">
-                        <div class="buttonsContainer">
-                            <div class="gameButton enabled playPauseButton" id="playPauseButton">
+                        <div id="buttonsContainer">
+                            <div class="gameButton enabled" id="playPauseButton">
                                 <div class="buttonText">&#xf04b;&#xf04c;</div>
                             </div>
-                            <div class="gameButton restartButton" id="restartButton">
+                            <div class="gameButton" id="restartButton">
                                 <div class="buttonText">&#xf01e;</div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="innerRightSubContainer">
                     <div class="relHundred">
-                        <div class="timerContainer">
+                        <div id="timerContainer">
                             <div id="flipClock"></div>
                         </div>
                     </div>

@@ -12,12 +12,12 @@ $restartButtonColor: #26C9FF;
   font-family: font-awesome;
   src: url('../lib/font-awesome/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
   url('../lib/font-awesome/fonts/fontawesome-webfont.woff') format('woff'),
-  url('../lib/font-awesome/fonts/fontawesome-webfont.ttf')  format('truetype'),
+  url('../lib/font-awesome/fonts/fontawesome-webfont.ttf') format('truetype'),
   url('../lib/font-awesome/fonts/fontawesome-webfont.svg#fontawesome-webfont') format('svg');
 }
 
 html, body, input {
-  font-family:  DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
+  font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -58,34 +58,33 @@ html, body, input {
   display: none;
 }
 
-
 .leftSide {
   float: left;
   height: 100%;
   width: 70%;
 
-    .screenContainer {
-      float: none;
-      height: 85%;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 7.5%;
-      position: relative;
-      width: 85%;
-    }
+  #screenContainer {
+    float: none;
+    height: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7.5%;
+    position: relative;
+    width: 85%;
+  }
 
-    .textContainer {
+  .gameScreen {
+    background: $blueGrey;
+    position: absolute;
+    @extend .biggest;
+
+    #pauseScreenText {
       background: none;
       font-size: 2em;
       text-align: left;
       @extend .verticalAlignAndCenter;
     }
-
-    .gameScreen {
-      background: $blueGrey;
-      position: absolute;
-      @extend .biggest;
-    }
+  }
 }
 
 .rightSide {
@@ -94,16 +93,15 @@ html, body, input {
   position: relative;
   width: 30%;
 
-    .innerRightContainer {
-      height: 90%;
-      width: 90%;
-      @extend .verticalAlignAndCenter;
-    }
+  .innerRightContainer {
+    height: 90%;
+    width: 90%;
+    @extend .verticalAlignAndCenter;
+  }
 
-    .absHundred {
-      @extend .biggest;
-      position: absolute;
-    }
+  .absHundred {
+    @extend .biggest;
+    position: absolute;
 
     .innerRightSubContainer {
       height: 25%;
@@ -151,17 +149,22 @@ html, body, input {
           vertical-align: middle;
         }
 
-        .buttonsContainer {
+        #buttonsContainer {
           height: 60%;
           width: 100%;
           @extend .verticalAlignAndCenter;
         }
 
-        .levelDisplayContainer {
+        #levelDisplayContainer {
           background: $blueGrey;
           position: absolute;
           width: 100%;
           @extend .verticalAlignAndCenter;
+        }
+
+        #levelDisplayContainer.formField {
+          margin: 1%;
+          padding: 4%;
         }
 
         .levelDisplay {
@@ -171,50 +174,45 @@ html, body, input {
           width: 90%;
         }
 
-        .levelDisplayContainer.formField {
-          margin: 1%;
-          padding: 4%;
-        }
-
-        .activeButton
-        {
+        .activeButton {
           position: relative;
           top: 6px;
         }
 
-        .playPauseButton {
+        #playPauseButton {
           background-color: $playButtonColor;
-          @include box-shadow(0, 6px, 0, darken( $playButtonColor, 10% ));
+          @include box-shadow(0, 6px, 0, darken($playButtonColor, 10%));
         }
 
-        .playPauseButton:active.enabled {
+        #playPauseButton:active.enabled {
           @extend .activeButton;
-          @include box-shadow(0, 3px, 0, darken( $playButtonActiveColor, 10%));
+          @include box-shadow(0, 3px, 0, darken($playButtonActiveColor, 10%));
         }
 
-        .playPauseButton.disabled {
-          background-color: lighten( $playButtonColor, 20% );
+        #playPauseButton.disabled {
+          background-color: lighten($playButtonColor, 20%);
           @include box-shadow(0, 6px, 0, $playButtonColor);
         }
 
-        .restartButton {
+        #restartButton {
           background-color: $restartButtonColor;
           @include box-shadow(0, 6px, 0, darken($restartButtonColor, 10%));
         }
 
-        .restartButton:active {
+        #restartButton:active {
           @extend .activeButton;
           @include box-shadow(0, 3px, 0, darken($restartButtonColor, 10%));
         }
 
-        .timerContainer {
+        #timerContainer {
           width: 85%;
           @extend .verticalAlignAndCenter;
         }
 
-        .flip-clock-wrapper{
+        .flip-clock-wrapper {
           margin: 0 !important;
         }
+      }
     }
   }
 }
