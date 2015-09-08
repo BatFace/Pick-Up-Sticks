@@ -15,6 +15,7 @@ html, body, input {
   padding: 0;
   text-align: center;
 }
+
 .wholeContainer {
   /* TODO: Media Queries */
   /*height:100%;*/
@@ -80,125 +81,122 @@ html, body, input {
   .innerRightContainer {
     height: 90%;
     width: 90%;
-    @extend .verticalAlignAndCenter;
-  }
-
-  .absHundred {
-    @extend .biggest;
+    @extend .verticalAlignAndCenter, .biggest;
     position: absolute;
-
-    .innerRightSubContainer {
-      height: 25%;
-      margin-left: auto;
-      margin-right: auto;
-      width: 80%;
-      position: relative;
-
-        .title {
-          @extend .verticalAlignAndCenter;
-          background: #f3ed4e;
-          border-color: $fuschia;
-          border-style: dotted;
-          border-width: thick;
-          color: $fuschia;
-          text-shadow: 2px 2px #FFF;
-          width: 100%;
-          font-size: 2em;
-        }
-
-        input:invalid {
-          background-color: $invalidInputColor;
-        }
-
-        .buttonText {
-          display: table-cell;
-          vertical-align: middle;
-        }
-
-        .gameButton {
-          @include border-radius(8px);
-          color: #fff;
-          cursor: pointer;
-          display: table;
-          float: left;
-          font-family: font-awesome;
-          height: 100%;
-          width: 40%;
-          margin-left: 5%;
-          margin-right: 5%;
-          position: relative;
-          vertical-align: middle;
-        }
-
-        #buttonsContainer {
-          height: 60%;
-          width: 100%;
-          @extend .verticalAlignAndCenter;
-        }
-
-        #levelDisplayContainer {
-          background: $blueGrey;
-          position: absolute;
-          width: 100%;
-          @extend .verticalAlignAndCenter;
-        }
-
-        #levelDisplayContainer.formField {
-          margin: 1%;
-          padding: 4%;
-        }
-
-        .levelDisplay {
-          font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
-          font-size: 1.8em;
-          vertical-align: middle;
-          width: 90%;
-        }
-
-        .activeButton {
-          position: relative;
-          top: 6px;
-        }
-
-        #playPauseButton {
-          background-color: $playButtonColor;
-          background-image: url(../images/play.svg);
-          background-size: 100% 100%;
-          border: 0;
-          @include box-shadow(0, 6px, 0, darken($playButtonColor, 10%));
-        }
-
-        #playPauseButton:active.enabled {
-          @extend .activeButton;
-          @include box-shadow(0, 3px, 0, darken($playButtonActiveColor, 10%));
-        }
-
-        #playPauseButton.disabled {
-          background-color: lighten($playButtonColor, 20%);
-          @include box-shadow(0, 6px, 0, $playButtonColor);
-        }
-
-        #restartButton {
-          background-color: $restartButtonColor;
-          background-image: url(../images/restart.svg);
-          background-size: 100% 100%;
-          border: 0;
-          @include box-shadow(0, 6px, 0, darken($restartButtonColor, 10%));
-        }
-
-        #restartButton:active {
-          @extend .activeButton;
-          @include box-shadow(0, 3px, 0, darken($restartButtonColor, 10%));
-        }
-
-        #timerContainer {
-          width: 85%;
-          @extend .verticalAlignAndCenter;
-        }
-
-        .flip-clock-wrapper {
-          margin: 0 !important;
-        }
-      }
   }
+
+  .innerRightSubContainer {
+    height: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    position: relative;
+
+      .title {
+        @extend .verticalAlignAndCenter;
+        background: #f3ed4e;
+        border-color: $fuschia;
+        border-style: dotted;
+        border-width: thick;
+        color: $fuschia;
+        text-shadow: 2px 2px #FFF;
+        width: 100%;
+        font-size: 2em;
+      }
+
+      input:invalid {
+        background-color: $invalidInputColor;
+      }
+
+      .buttonText {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      .gameButton {
+        @include border-radius(8px);
+        color: #fff;
+        cursor: pointer;
+        display: table;
+        float: left;
+        font-family: font-awesome;
+        height: 100%;
+        width: 40%;
+        margin-left: 5%;
+        margin-right: 5%;
+        position: relative;
+        vertical-align: middle;
+      }
+
+      #buttonsContainer {
+        height: 60%;
+        width: 100%;
+        @extend .verticalAlignAndCenter;
+      }
+
+      #levelDisplayContainer {
+        background: $blueGrey;
+        position: absolute;
+        width: 100%;
+        @extend .verticalAlignAndCenter;
+      }
+
+      #levelDisplayContainer.formField {
+        margin: 1%;
+        padding: 4%;
+      }
+
+      .levelDisplay {
+        font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
+        font-size: 1.8em;
+        vertical-align: middle;
+        width: 90%;
+      }
+
+      .activeButton {
+        position: relative;
+        top: 6px;
+      }
+
+      #playPauseButton {
+        background-color: $playButtonColor;
+        background-image: url(../images/play.svg);
+        background-size: 100% 100%;
+        border: 0;
+        @include box-shadow(0, 6px, 0, darken($playButtonColor, 10%));
+      }
+
+      #playPauseButton:active.enabled {
+        @extend .activeButton;
+        @include box-shadow(0, 3px, 0, darken($playButtonActiveColor, 10%));
+      }
+
+      #playPauseButton.disabled {
+        background-color: lighten($playButtonColor, 20%);
+        @include box-shadow(0, 6px, 0, $playButtonColor);
+      }
+
+      #restartButton {
+        background-color: $restartButtonColor;
+        background-image: url(../images/restart.svg);
+        background-size: 100% 100%;
+        border: 0;
+        @include box-shadow(0, 6px, 0, darken($restartButtonColor, 10%));
+      }
+
+      #restartButton:active {
+        @extend .activeButton;
+        @include box-shadow(0, 3px, 0, darken($restartButtonColor, 10%));
+      }
+
+      #timerContainer {
+        width: 85%;
+        @extend .verticalAlignAndCenter;
+      }
+
+      .flip-clock-wrapper {
+        margin: 0 !important;
+      }
+    }
+
 }

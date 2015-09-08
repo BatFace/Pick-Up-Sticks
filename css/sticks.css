@@ -20,7 +20,7 @@ html, body, input {
   user-select: none;
   cursor: default; }
 
-.verticalAlignAndCenter, .leftSide .gameScreen #pauseScreenText, .rightSide .innerRightContainer, .rightSide .absHundred .innerRightSubContainer .title, .rightSide .absHundred .innerRightSubContainer #buttonsContainer, .rightSide .absHundred .innerRightSubContainer #levelDisplayContainer, .rightSide .absHundred .innerRightSubContainer #timerContainer {
+.verticalAlignAndCenter, .leftSide .gameScreen #pauseScreenText, .rightSide .innerRightContainer, .rightSide .innerRightSubContainer .title, .rightSide .innerRightSubContainer #buttonsContainer, .rightSide .innerRightSubContainer #levelDisplayContainer, .rightSide .innerRightSubContainer #timerContainer {
   left: 50%;
   top: 50%;
   position: absolute;
@@ -30,7 +30,7 @@ html, body, input {
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%); }
 
-.biggest, .leftSide .gameScreen, .rightSide .absHundred {
+.biggest, .leftSide .gameScreen, .rightSide .innerRightContainer {
   height: 100%;
   width: 100%; }
 
@@ -65,95 +65,94 @@ html, body, input {
   width: 30%; }
   .rightSide .innerRightContainer {
     height: 90%;
-    width: 90%; }
-  .rightSide .absHundred {
+    width: 90%;
     position: absolute; }
-    .rightSide .absHundred .innerRightSubContainer {
-      height: 25%;
-      margin-left: auto;
-      margin-right: auto;
-      width: 80%;
-      position: relative; }
-      .rightSide .absHundred .innerRightSubContainer .title {
-        background: #f3ed4e;
-        border-color: #FF26C9;
-        border-style: dotted;
-        border-width: thick;
-        color: #FF26C9;
-        text-shadow: 2px 2px #FFF;
-        width: 100%;
-        font-size: 2em; }
-      .rightSide .absHundred .innerRightSubContainer input:invalid {
-        background-color: #FFC0CB; }
-      .rightSide .absHundred .innerRightSubContainer .buttonText {
-        display: table-cell;
-        vertical-align: middle; }
-      .rightSide .absHundred .innerRightSubContainer .gameButton {
-        -webkit-border-radius: 8px;
-        -moz-border-radius: 8px;
-        -ms-border-radius: 8px;
-        border-radius: 8px;
-        color: #fff;
-        cursor: pointer;
-        display: table;
-        float: left;
-        font-family: font-awesome;
-        height: 100%;
-        width: 40%;
-        margin-left: 5%;
-        margin-right: 5%;
-        position: relative;
-        vertical-align: middle; }
-      .rightSide .absHundred .innerRightSubContainer #buttonsContainer {
-        height: 60%;
-        width: 100%; }
-      .rightSide .absHundred .innerRightSubContainer #levelDisplayContainer {
-        background: #EDFDFF;
-        position: absolute;
-        width: 100%; }
-      .rightSide .absHundred .innerRightSubContainer #levelDisplayContainer.formField {
-        margin: 1%;
-        padding: 4%; }
-      .rightSide .absHundred .innerRightSubContainer .levelDisplay {
-        font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
-        font-size: 1.8em;
-        vertical-align: middle;
-        width: 90%; }
-      .rightSide .absHundred .innerRightSubContainer .activeButton, .rightSide .absHundred .innerRightSubContainer #playPauseButton.enabled:active, .rightSide .absHundred .innerRightSubContainer #restartButton:active {
-        position: relative;
-        top: 6px; }
-      .rightSide .absHundred .innerRightSubContainer #playPauseButton {
-        background-color: #6CBB3C;
-        background-image: url(../images/play.svg);
-        background-size: 100% 100%;
-        border: 0;
-        -webkit-box-shadow: 0 6px 0 #569430;
-        -moz-box-shadow: 0 6px 0 #569430;
-        box-shadow: 0 6px 0 #569430; }
-      .rightSide .absHundred .innerRightSubContainer #playPauseButton:active.enabled {
-        -webkit-box-shadow: 0 3px 0 #22550f;
-        -moz-box-shadow: 0 3px 0 #22550f;
-        box-shadow: 0 3px 0 #22550f; }
-      .rightSide .absHundred .innerRightSubContainer #playPauseButton.disabled {
-        background-color: #a4d885;
-        -webkit-box-shadow: 0 6px 0 #6CBB3C;
-        -moz-box-shadow: 0 6px 0 #6CBB3C;
-        box-shadow: 0 6px 0 #6CBB3C; }
-      .rightSide .absHundred .innerRightSubContainer #restartButton {
-        background-color: #26C9FF;
-        background-image: url(../images/restart.svg);
-        background-size: 100% 100%;
-        border: 0;
-        -webkit-box-shadow: 0 6px 0 #00b6f2;
-        -moz-box-shadow: 0 6px 0 #00b6f2;
-        box-shadow: 0 6px 0 #00b6f2; }
-      .rightSide .absHundred .innerRightSubContainer #restartButton:active {
-        -webkit-box-shadow: 0 3px 0 #00b6f2;
-        -moz-box-shadow: 0 3px 0 #00b6f2;
-        box-shadow: 0 3px 0 #00b6f2; }
-      .rightSide .absHundred .innerRightSubContainer #timerContainer {
-        width: 85%; }
-      .rightSide .absHundred .innerRightSubContainer .flip-clock-wrapper {
-        margin: 0 !important; }
+  .rightSide .innerRightSubContainer {
+    height: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    position: relative; }
+    .rightSide .innerRightSubContainer .title {
+      background: #f3ed4e;
+      border-color: #FF26C9;
+      border-style: dotted;
+      border-width: thick;
+      color: #FF26C9;
+      text-shadow: 2px 2px #FFF;
+      width: 100%;
+      font-size: 2em; }
+    .rightSide .innerRightSubContainer input:invalid {
+      background-color: #FFC0CB; }
+    .rightSide .innerRightSubContainer .buttonText {
+      display: table-cell;
+      vertical-align: middle; }
+    .rightSide .innerRightSubContainer .gameButton {
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      -ms-border-radius: 8px;
+      border-radius: 8px;
+      color: #fff;
+      cursor: pointer;
+      display: table;
+      float: left;
+      font-family: font-awesome;
+      height: 100%;
+      width: 40%;
+      margin-left: 5%;
+      margin-right: 5%;
+      position: relative;
+      vertical-align: middle; }
+    .rightSide .innerRightSubContainer #buttonsContainer {
+      height: 60%;
+      width: 100%; }
+    .rightSide .innerRightSubContainer #levelDisplayContainer {
+      background: #EDFDFF;
+      position: absolute;
+      width: 100%; }
+    .rightSide .innerRightSubContainer #levelDisplayContainer.formField {
+      margin: 1%;
+      padding: 4%; }
+    .rightSide .innerRightSubContainer .levelDisplay {
+      font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
+      font-size: 1.8em;
+      vertical-align: middle;
+      width: 90%; }
+    .rightSide .innerRightSubContainer .activeButton, .rightSide .innerRightSubContainer #playPauseButton.enabled:active, .rightSide .innerRightSubContainer #restartButton:active {
+      position: relative;
+      top: 6px; }
+    .rightSide .innerRightSubContainer #playPauseButton {
+      background-color: #6CBB3C;
+      background-image: url(../images/play.svg);
+      background-size: 100% 100%;
+      border: 0;
+      -webkit-box-shadow: 0 6px 0 #569430;
+      -moz-box-shadow: 0 6px 0 #569430;
+      box-shadow: 0 6px 0 #569430; }
+    .rightSide .innerRightSubContainer #playPauseButton:active.enabled {
+      -webkit-box-shadow: 0 3px 0 #22550f;
+      -moz-box-shadow: 0 3px 0 #22550f;
+      box-shadow: 0 3px 0 #22550f; }
+    .rightSide .innerRightSubContainer #playPauseButton.disabled {
+      background-color: #a4d885;
+      -webkit-box-shadow: 0 6px 0 #6CBB3C;
+      -moz-box-shadow: 0 6px 0 #6CBB3C;
+      box-shadow: 0 6px 0 #6CBB3C; }
+    .rightSide .innerRightSubContainer #restartButton {
+      background-color: #26C9FF;
+      background-image: url(../images/restart.svg);
+      background-size: 100% 100%;
+      border: 0;
+      -webkit-box-shadow: 0 6px 0 #00b6f2;
+      -moz-box-shadow: 0 6px 0 #00b6f2;
+      box-shadow: 0 6px 0 #00b6f2; }
+    .rightSide .innerRightSubContainer #restartButton:active {
+      -webkit-box-shadow: 0 3px 0 #00b6f2;
+      -moz-box-shadow: 0 3px 0 #00b6f2;
+      box-shadow: 0 3px 0 #00b6f2; }
+    .rightSide .innerRightSubContainer #timerContainer {
+      width: 85%; }
+    .rightSide .innerRightSubContainer .flip-clock-wrapper {
+      margin: 0 !important; }
 
 /*# sourceMappingURL=sticks.css.map */
