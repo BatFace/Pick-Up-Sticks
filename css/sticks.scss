@@ -8,14 +8,6 @@ $playButtonColor: #6CBB3C;
 $playButtonActiveColor: #348017;
 $restartButtonColor: #26C9FF;
 
-@font-face {
-  font-family: font-awesome;
-  src: url('../lib/font-awesome/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../lib/font-awesome/fonts/fontawesome-webfont.woff') format('woff'),
-  url('../lib/font-awesome/fonts/fontawesome-webfont.ttf') format('truetype'),
-  url('../lib/font-awesome/fonts/fontawesome-webfont.svg#fontawesome-webfont') format('svg');
-}
-
 html, body, input {
   font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
   height: 100%;
@@ -23,11 +15,6 @@ html, body, input {
   padding: 0;
   text-align: center;
 }
-
-.symbol {
-  font-family: font-awesome;
-}
-
 .wholeContainer {
   /* TODO: Media Queries */
   /*height:100%;*/
@@ -58,25 +45,22 @@ html, body, input {
   display: none;
 }
 
+.screenContainer {
+  margin: 5%;
+  width: 85%;
+  height:85%;
+}
+
 .leftSide {
   float: left;
   height: 100%;
   width: 70%;
-
-  #screenContainer {
-    float: none;
-    height: 85%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 7.5%;
-    position: relative;
-    width: 85%;
-  }
+  position: relative;
 
   .gameScreen {
     background: $blueGrey;
+    @extend .biggest, .screenContainer;
     position: absolute;
-    @extend .biggest;
 
     #pauseScreenText {
       background: none;
@@ -108,10 +92,7 @@ html, body, input {
       margin-left: auto;
       margin-right: auto;
       width: 80%;
-
-      .relHundred {
-        @extend .biggest;
-        position: relative;
+      position: relative;
 
         .title {
           @extend .verticalAlignAndCenter;
@@ -181,6 +162,9 @@ html, body, input {
 
         #playPauseButton {
           background-color: $playButtonColor;
+          background-image: url(../images/play.svg);
+          background-size: 100% 100%;
+          border: 0;
           @include box-shadow(0, 6px, 0, darken($playButtonColor, 10%));
         }
 
@@ -196,6 +180,9 @@ html, body, input {
 
         #restartButton {
           background-color: $restartButtonColor;
+          background-image: url(../images/restart.svg);
+          background-size: 100% 100%;
+          border: 0;
           @include box-shadow(0, 6px, 0, darken($restartButtonColor, 10%));
         }
 
@@ -213,6 +200,5 @@ html, body, input {
           margin: 0 !important;
         }
       }
-    }
   }
 }

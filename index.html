@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Pick Up Sticks!</title>
 </head>
 <body>
 <link rel="stylesheet" type="text/css" href="css/sticks.css">
@@ -10,59 +10,40 @@
 
 <div class="wholeContainer">
     <div class="leftSide">
-        <div id="screenContainer">
-            <div id="gameArea" class="gameScreen"></div>
-            <div id="pauseScreen" class="gameScreen">
-                <div id="pauseScreenText">
-                    <span id="startText" class="active">Press <span
-                            class='symbol'>&#xf04b;&#xf04c;</span> to start.</span>
-                    <span id="pausedText" class="notActive">Paused. Press <span class='symbol'>&#xf04b;&#xf04c;</span> to continue.</span>
-                    <span id="wonText" class="notActive">You won! Why not pick a different level?</span>
-                    <span id="lostText" class="notActive">You lost. That's a shame.</span>
-                </div>
+        <div id="gameArea" class="gameScreen"></div>
+        <div id="pauseScreen" class="gameScreen">
+            <div id="pauseScreenText">
+                <span id="startText" class="active">Let's go!</span>
+                <span id="pausedText" class="notActive">Paused.</span>
+                <span id="wonText" class="notActive">You won! Why not pick a different level?</span>
+                <span id="lostText" class="notActive">You lost. That's a shame.</span>
             </div>
         </div>
     </div>
     <div class="rightSide">
-        <div class="innerRightContainer">
-            <div class="absHundred">
-                <div class="innerRightSubContainer">
-                    <div class="relHundred">
-                        <div class="title">
-                            <span>Pick Up Sticks!</span>
-                        </div>
+        <div class="innerRightContainer absHundred">
+            <div class="relHundred innerRightSubContainer">
+                <span class="title">Pick Up Sticks!</span>
+            </div>
+            <div class="innerRightSubContainer">
+                <form id="gameLevelForm" class="verticalAlignMiddle">
+                    <div id="levelDisplayContainer" class="formField">
+                        <label class="levelDisplay" for="levelNumericControl">Level</label>
+                        <input class="levelDisplay" type="number" id="levelNumericControl" min="1" max="999"
+                               step="1" value="1"/>
                     </div>
+                    <button type=submit style="display:none;"></button>
+                </form>
+            </div>
+            <div class="innerRightSubContainer">
+                <div id="buttonsContainer">
+                    <div class="gameButton enabled" id="playPauseButton"></div>
+                    <div class="gameButton" id="restartButton"></div>
                 </div>
-                <div class="innerRightSubContainer">
-                    <div class="relHundred">
-                        <form id="gameLevelForm" class="verticalAlignMiddle">
-                            <div id ="levelDisplayContainer" class="formField">
-                                <label class="levelDisplay" for="levelNumericControl">Level</label>
-                                <input class="levelDisplay" type="number" id="levelNumericControl" min="1" max="999"
-                                       step="1" value="1"/>
-                            </div>
-                            <button type=submit style="display:none;"></button>
-                        </form>
-                    </div>
-                </div>
-                <div class="innerRightSubContainer">
-                    <div class="relHundred">
-                        <div id="buttonsContainer">
-                            <div class="gameButton enabled" id="playPauseButton">
-                                <div class="buttonText">&#xf04b;&#xf04c;</div>
-                            </div>
-                            <div class="gameButton" id="restartButton">
-                                <div class="buttonText">&#xf01e;</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="innerRightSubContainer">
-                    <div class="relHundred">
-                        <div id="timerContainer">
-                            <div id="flipClock"></div>
-                        </div>
-                    </div>
+            </div>
+            <div class="innerRightSubContainer">
+                <div id="timerContainer">
+                    <div id="flipClock"></div>
                 </div>
             </div>
         </div>

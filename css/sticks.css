@@ -1,16 +1,10 @@
 @import url(../lib/FlipClock/compiled/flipclock.css);
-@font-face {
-  font-family: font-awesome;
-  src: url("../lib/font-awesome/fonts/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("../lib/font-awesome/fonts/fontawesome-webfont.woff") format("woff"), url("../lib/font-awesome/fonts/fontawesome-webfont.ttf") format("truetype"), url("../lib/font-awesome/fonts/fontawesome-webfont.svg#fontawesome-webfont") format("svg"); }
 html, body, input {
   font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
   height: 100%;
   margin: 0;
   padding: 0;
   text-align: center; }
-
-.symbol {
-  font-family: font-awesome; }
 
 .wholeContainer {
   /* TODO: Media Queries */
@@ -26,7 +20,7 @@ html, body, input {
   user-select: none;
   cursor: default; }
 
-.verticalAlignAndCenter, .leftSide .gameScreen #pauseScreenText, .rightSide .innerRightContainer, .rightSide .absHundred .innerRightSubContainer .relHundred .title, .rightSide .absHundred .innerRightSubContainer .relHundred #buttonsContainer, .rightSide .absHundred .innerRightSubContainer .relHundred #levelDisplayContainer, .rightSide .absHundred .innerRightSubContainer .relHundred #timerContainer {
+.verticalAlignAndCenter, .leftSide .gameScreen #pauseScreenText, .rightSide .innerRightContainer, .rightSide .absHundred .innerRightSubContainer .title, .rightSide .absHundred .innerRightSubContainer #buttonsContainer, .rightSide .absHundred .innerRightSubContainer #levelDisplayContainer, .rightSide .absHundred .innerRightSubContainer #timerContainer {
   left: 50%;
   top: 50%;
   position: absolute;
@@ -36,7 +30,7 @@ html, body, input {
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%); }
 
-.biggest, .leftSide .gameScreen, .rightSide .absHundred, .rightSide .absHundred .innerRightSubContainer .relHundred {
+.biggest, .leftSide .gameScreen, .rightSide .absHundred {
   height: 100%;
   width: 100%; }
 
@@ -46,18 +40,16 @@ html, body, input {
 .notActive {
   display: none; }
 
+.screenContainer, .leftSide .gameScreen {
+  margin: 5%;
+  width: 85%;
+  height: 85%; }
+
 .leftSide {
   float: left;
   height: 100%;
-  width: 70%; }
-  .leftSide #screenContainer {
-    float: none;
-    height: 85%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 7.5%;
-    position: relative;
-    width: 85%; }
+  width: 70%;
+  position: relative; }
   .leftSide .gameScreen {
     background: #EDFDFF;
     position: absolute; }
@@ -80,83 +72,88 @@ html, body, input {
       height: 25%;
       margin-left: auto;
       margin-right: auto;
-      width: 80%; }
-      .rightSide .absHundred .innerRightSubContainer .relHundred {
-        position: relative; }
-        .rightSide .absHundred .innerRightSubContainer .relHundred .title {
-          background: #f3ed4e;
-          border-color: #FF26C9;
-          border-style: dotted;
-          border-width: thick;
-          color: #FF26C9;
-          text-shadow: 2px 2px #FFF;
-          width: 100%;
-          font-size: 2em; }
-        .rightSide .absHundred .innerRightSubContainer .relHundred input:invalid {
-          background-color: #FFC0CB; }
-        .rightSide .absHundred .innerRightSubContainer .relHundred .buttonText {
-          display: table-cell;
-          vertical-align: middle; }
-        .rightSide .absHundred .innerRightSubContainer .relHundred .gameButton {
-          -webkit-border-radius: 8px;
-          -moz-border-radius: 8px;
-          -ms-border-radius: 8px;
-          border-radius: 8px;
-          color: #fff;
-          cursor: pointer;
-          display: table;
-          float: left;
-          font-family: font-awesome;
-          height: 100%;
-          width: 40%;
-          margin-left: 5%;
-          margin-right: 5%;
-          position: relative;
-          vertical-align: middle; }
-        .rightSide .absHundred .innerRightSubContainer .relHundred #buttonsContainer {
-          height: 60%;
-          width: 100%; }
-        .rightSide .absHundred .innerRightSubContainer .relHundred #levelDisplayContainer {
-          background: #EDFDFF;
-          position: absolute;
-          width: 100%; }
-        .rightSide .absHundred .innerRightSubContainer .relHundred #levelDisplayContainer.formField {
-          margin: 1%;
-          padding: 4%; }
-        .rightSide .absHundred .innerRightSubContainer .relHundred .levelDisplay {
-          font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
-          font-size: 1.8em;
-          vertical-align: middle;
-          width: 90%; }
-        .rightSide .absHundred .innerRightSubContainer .relHundred .activeButton, .rightSide .absHundred .innerRightSubContainer .relHundred #playPauseButton.enabled:active, .rightSide .absHundred .innerRightSubContainer .relHundred #restartButton:active {
-          position: relative;
-          top: 6px; }
-        .rightSide .absHundred .innerRightSubContainer .relHundred #playPauseButton {
-          background-color: #6CBB3C;
-          -webkit-box-shadow: 0 6px 0 #569430;
-          -moz-box-shadow: 0 6px 0 #569430;
-          box-shadow: 0 6px 0 #569430; }
-        .rightSide .absHundred .innerRightSubContainer .relHundred #playPauseButton:active.enabled {
-          -webkit-box-shadow: 0 3px 0 #22550f;
-          -moz-box-shadow: 0 3px 0 #22550f;
-          box-shadow: 0 3px 0 #22550f; }
-        .rightSide .absHundred .innerRightSubContainer .relHundred #playPauseButton.disabled {
-          background-color: #a4d885;
-          -webkit-box-shadow: 0 6px 0 #6CBB3C;
-          -moz-box-shadow: 0 6px 0 #6CBB3C;
-          box-shadow: 0 6px 0 #6CBB3C; }
-        .rightSide .absHundred .innerRightSubContainer .relHundred #restartButton {
-          background-color: #26C9FF;
-          -webkit-box-shadow: 0 6px 0 #00b6f2;
-          -moz-box-shadow: 0 6px 0 #00b6f2;
-          box-shadow: 0 6px 0 #00b6f2; }
-        .rightSide .absHundred .innerRightSubContainer .relHundred #restartButton:active {
-          -webkit-box-shadow: 0 3px 0 #00b6f2;
-          -moz-box-shadow: 0 3px 0 #00b6f2;
-          box-shadow: 0 3px 0 #00b6f2; }
-        .rightSide .absHundred .innerRightSubContainer .relHundred #timerContainer {
-          width: 85%; }
-        .rightSide .absHundred .innerRightSubContainer .relHundred .flip-clock-wrapper {
-          margin: 0 !important; }
+      width: 80%;
+      position: relative; }
+      .rightSide .absHundred .innerRightSubContainer .title {
+        background: #f3ed4e;
+        border-color: #FF26C9;
+        border-style: dotted;
+        border-width: thick;
+        color: #FF26C9;
+        text-shadow: 2px 2px #FFF;
+        width: 100%;
+        font-size: 2em; }
+      .rightSide .absHundred .innerRightSubContainer input:invalid {
+        background-color: #FFC0CB; }
+      .rightSide .absHundred .innerRightSubContainer .buttonText {
+        display: table-cell;
+        vertical-align: middle; }
+      .rightSide .absHundred .innerRightSubContainer .gameButton {
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        border-radius: 8px;
+        color: #fff;
+        cursor: pointer;
+        display: table;
+        float: left;
+        font-family: font-awesome;
+        height: 100%;
+        width: 40%;
+        margin-left: 5%;
+        margin-right: 5%;
+        position: relative;
+        vertical-align: middle; }
+      .rightSide .absHundred .innerRightSubContainer #buttonsContainer {
+        height: 60%;
+        width: 100%; }
+      .rightSide .absHundred .innerRightSubContainer #levelDisplayContainer {
+        background: #EDFDFF;
+        position: absolute;
+        width: 100%; }
+      .rightSide .absHundred .innerRightSubContainer #levelDisplayContainer.formField {
+        margin: 1%;
+        padding: 4%; }
+      .rightSide .absHundred .innerRightSubContainer .levelDisplay {
+        font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
+        font-size: 1.8em;
+        vertical-align: middle;
+        width: 90%; }
+      .rightSide .absHundred .innerRightSubContainer .activeButton, .rightSide .absHundred .innerRightSubContainer #playPauseButton.enabled:active, .rightSide .absHundred .innerRightSubContainer #restartButton:active {
+        position: relative;
+        top: 6px; }
+      .rightSide .absHundred .innerRightSubContainer #playPauseButton {
+        background-color: #6CBB3C;
+        background-image: url(../images/play.svg);
+        background-size: 100% 100%;
+        border: 0;
+        -webkit-box-shadow: 0 6px 0 #569430;
+        -moz-box-shadow: 0 6px 0 #569430;
+        box-shadow: 0 6px 0 #569430; }
+      .rightSide .absHundred .innerRightSubContainer #playPauseButton:active.enabled {
+        -webkit-box-shadow: 0 3px 0 #22550f;
+        -moz-box-shadow: 0 3px 0 #22550f;
+        box-shadow: 0 3px 0 #22550f; }
+      .rightSide .absHundred .innerRightSubContainer #playPauseButton.disabled {
+        background-color: #a4d885;
+        -webkit-box-shadow: 0 6px 0 #6CBB3C;
+        -moz-box-shadow: 0 6px 0 #6CBB3C;
+        box-shadow: 0 6px 0 #6CBB3C; }
+      .rightSide .absHundred .innerRightSubContainer #restartButton {
+        background-color: #26C9FF;
+        background-image: url(../images/restart.svg);
+        background-size: 100% 100%;
+        border: 0;
+        -webkit-box-shadow: 0 6px 0 #00b6f2;
+        -moz-box-shadow: 0 6px 0 #00b6f2;
+        box-shadow: 0 6px 0 #00b6f2; }
+      .rightSide .absHundred .innerRightSubContainer #restartButton:active {
+        -webkit-box-shadow: 0 3px 0 #00b6f2;
+        -moz-box-shadow: 0 3px 0 #00b6f2;
+        box-shadow: 0 3px 0 #00b6f2; }
+      .rightSide .absHundred .innerRightSubContainer #timerContainer {
+        width: 85%; }
+      .rightSide .absHundred .innerRightSubContainer .flip-clock-wrapper {
+        margin: 0 !important; }
 
 /*# sourceMappingURL=sticks.css.map */
