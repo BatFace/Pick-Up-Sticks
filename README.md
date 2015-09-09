@@ -1,6 +1,8 @@
 # Pick-Up-Sticks
 An HTML/JavaScript implementation of the game Pick-up-sticks.
 
+[Demo](http://batface.github.io/Pick-Up-Sticks/)
+
 Set up for development with JetBrains WebStorm, but game will run just from the main index.html file.
 
 ## Browser Compatibility

@@ -1,241 +1,154 @@
-/* Element selectors */
+html, body, input {
+  font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
+  font-size: 1em;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center; }
 
-html, body {
-    font-family: DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, Monaco, Lucida Console, monospace;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-}
+.wholeContainer {
+  height: 100%;
+  width: 100%;
+  background: #34282c;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default; }
 
-form {
-    margin: 0 auto;
-    text-align: center;
-}
+.verticalAlignAndCenter, .leftSide .gameScreen, .leftSide .gameScreen #pauseScreenText, .rightSide .innerRightContainer, .rightSide .innerRightSubContainer .title, .rightSide .innerRightSubContainer #buttonsContainer, .rightSide .innerRightSubContainer #levelDisplayContainer, .rightSide .innerRightSubContainer #timerContainer, .rightSide .innerRightSubContainer #timerDiv {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%); }
 
-input:invalid {
-    background-color: #FFC0CB;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    opacity: 1;
-}
-
-/*At-rules*/
-
-@font-face {
-    font-family: font-awesome;
-    src: url(../lib/font-awesome/fonts/fontawesome-webfont.woff)
-}
-
-/* Class Selectors */
-
-.absHundred {
-    height: 100%;
-    position: absolute;
-    width: 100%;
-}
+.biggest, .leftSide .gameScreen, .rightSide .innerRightContainer {
+  height: 100%;
+  width: 100%; }
 
 .active {
-    display: block;
-}
-
-.buttonText {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.flip-clock-wrapper{
-    margin: 0em !important;
-}
-
-.gameButton {
-    border-radius: 8px;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    color: #fff;
-    cursor: pointer;
-    display: table;
-    float: left;
-    font-family: font-awesome;
-    height: 100%;
-    margin-left: 5%;
-    margin-right: 5%;
-    position: relative;
-    text-align: center;
-    vertical-align: middle;
-    width: 40%;
-}
-
-.levelDisplay {
-    font-family: DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, Monaco, Lucida Console, monospace;
-    font-size: 1.8em;
-    text-align: center;
-    vertical-align: middle;
-    width: 90%;
-}
-
-.noSelect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
+  display: block; }
 
 .notActive {
-    display: none;
-}
+  display: none; }
 
-.relHundred {
-    height: 100%;
-    position: relative;
-    width: 100%;
-}
+.leftSide {
+  float: left;
+  height: 100%;
+  width: 70%;
+  position: relative; }
+  .leftSide .gameScreen {
+    background: #EDFDFF;
+    width: 85%;
+    height: 85%;
+    position: absolute; }
+    .leftSide .gameScreen #pauseScreenText {
+      background: none;
+      text-align: left; }
 
-.innerRightSubContainer {
+.rightSide {
+  float: right;
+  height: 100%;
+  position: relative;
+  width: 30%; }
+  .rightSide .innerRightContainer {
+    height: 90%;
+    width: 90%;
+    position: absolute; }
+  .rightSide .innerRightSubContainer {
     height: 25%;
     margin-left: auto;
     margin-right: auto;
     width: 80%;
-}
+    position: relative; }
+    .rightSide .innerRightSubContainer .title {
+      background: #F3ED4E;
+      border-color: #FF26C9;
+      border-style: dotted;
+      border-width: thick;
+      color: #FF26C9;
+      text-shadow: 2px 2px #FFF;
+      width: 100%;
+      padding: 2%; }
+    .rightSide .innerRightSubContainer input:invalid {
+      background-color: #FFC0CB; }
+    .rightSide .innerRightSubContainer .buttonText {
+      display: table-cell;
+      vertical-align: middle; }
+    .rightSide .innerRightSubContainer .gameButton {
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      -ms-border-radius: 8px;
+      border-radius: 8px;
+      color: #fff;
+      cursor: pointer;
+      display: table;
+      float: left;
+      font-family: font-awesome;
+      height: 100%;
+      width: 40%;
+      margin-left: 5%;
+      margin-right: 5%;
+      position: relative;
+      vertical-align: middle; }
+    .rightSide .innerRightSubContainer #buttonsContainer {
+      height: 60%;
+      width: 100%; }
+    .rightSide .innerRightSubContainer #levelDisplayContainer {
+      color: #FF26C9;
+      position: absolute; }
+    .rightSide .innerRightSubContainer .activeButton, .rightSide .innerRightSubContainer #playPauseButton.enabled:active, .rightSide .innerRightSubContainer #restartButton:active {
+      position: relative;
+      top: 6px; }
+    .rightSide .innerRightSubContainer #playPauseButton {
+      background-color: #6CBB3C;
+      background-image: url(../images/play.svg);
+      background-size: 100% 100%;
+      -webkit-box-shadow: 0 6px 0 #569430;
+      -moz-box-shadow: 0 6px 0 #569430;
+      box-shadow: 0 6px 0 #569430; }
+    .rightSide .innerRightSubContainer #playPauseButton:active.enabled {
+      -webkit-box-shadow: 0 3px 0 #22550f;
+      -moz-box-shadow: 0 3px 0 #22550f;
+      box-shadow: 0 3px 0 #22550f; }
+    .rightSide .innerRightSubContainer #playPauseButton.disabled {
+      background-color: #a4d885;
+      -webkit-box-shadow: 0 6px 0 #6CBB3C;
+      -moz-box-shadow: 0 6px 0 #6CBB3C;
+      box-shadow: 0 6px 0 #6CBB3C; }
+    .rightSide .innerRightSubContainer #restartButton {
+      background-color: #26C9FF;
+      background-image: url(../images/restart.svg);
+      background-size: 100% 100%;
+      -webkit-box-shadow: 0 6px 0 #00b6f2;
+      -moz-box-shadow: 0 6px 0 #00b6f2;
+      box-shadow: 0 6px 0 #00b6f2; }
+    .rightSide .innerRightSubContainer #restartButton:active {
+      -webkit-box-shadow: 0 3px 0 #00b6f2;
+      -moz-box-shadow: 0 3px 0 #00b6f2;
+      box-shadow: 0 3px 0 #00b6f2; }
+    .rightSide .innerRightSubContainer #timerContainer {
+      width: 85%;
+      height: 100%;
+      background-image: url(../images/stopwatch.svg);
+      background-size: 100% 100%; }
+    .rightSide .innerRightSubContainer #timerDiv {
+      color: #FF26C9; }
 
-.screenStyle {
-    background: #edfdff;
-    height: 100%;
-    position: absolute;
-    width: 100%;
-}
+@media only screen and (min-width: 400px) {
+  body {
+    font-size: 1.5em; } }
+@media only screen and (min-width: 768px) {
+  body {
+    font-size: 2em; } }
+@media only screen and (min-width: 1140px) {
+  body {
+    font-size: 3em; } }
 
-.textContainer {
-    background: none;
-    font-size: 2em;
-}
-
-.timerContainer {
-    width: 85%;
-}
-
-.symbol {
-    font-family: font-awesome;
-}
-
-/* ID Selectors */
-
-#buttonsContainer {
-    height: 60%;
-    width: 100%;
-}
-
-#innerRightContainer {
-    height: 90%;
-    width: 90%;
-}
-
-#leftSide {
-    float: left;
-    height: 100%;
-    width: 70%;
-}
-
-#levelDisplayContainer {
-    background: #edfdff;
-    position: absolute;
-    width: 100%;
-}
-
-#levelDisplayContainer.formField {
-    margin: 1%;
-    padding: 4%;
-    text-align: center;
-}
-
-#playPauseButton {
-    background-color: #6CBB3C;
-    box-shadow: 0px 6px 0px #348017;
-    -moz-box-shadow: 0px 6px 0px #348017;
-    -webkit-box-shadow: 0px 6px 0px #348017;
-}
-
-#playPauseButton:active.enabled {
-    box-shadow: 0px 3px 0px #348017;
-    -moz-box-shadow: 0px 3px 0px #348017;
-    -webkit-box-shadow: 0px 3px 0px #348017;
-    position: relative;
-    top: 6px;
-}
-
-#playPauseButton.disabled {
-    background-color: #AFDC94;
-    box-shadow: 0px 6px 0px #92AB83;
-    -moz-box-shadow: 0px 6px 0px #92AB83;
-    -webkit-box-shadow: 0px 6px 0px #92AB83;
-}
-
-#restartButton {
-    background-color: #26C9FF;
-    box-shadow: 0px 6px 0px #00698C;
-    -moz-box-shadow: 0px 6px 0px #00698C;
-    -webkit-box-shadow: 0px 6px 0px #00698C;
-}
-
-#restartButton:active {
-    box-shadow: 0px 3px 0px #00698C;
-    -moz-box-shadow: 0px 3px 0px #00698C;
-    -webkit-box-shadow: 0px 3px 0px #00698C;
-    position: relative;
-    top: 6px;
-}
-
-#rightSide {
-    float: right;
-    height: 100%;
-    position: relative;
-    width: 30%;
-}
-
-#screenContainer {
-    float: none;
-    height: 85%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 7.5%;
-    position: relative;
-    width: 85%;
-}
-
-#title {
-    background: #f3ed4e;
-    border-color: #FF26C9;
-    border-style: dotted;
-    border-width: thick;
-    color: #FF26C9;
-    text-align: center;
-    text-shadow: 2px 2px #FFF;
-    width: 100%;
-}
-
-#wholeContainer {
-    /* TODO: Media Queries */
-    /*height:100%;*/
-    /*width:100%;*/
-    background: #34282c;
-    height: 500px;
-    width: 800px;
-}
-
-/* Mixed selectors to vertically align and center */
-
-.textContainer,
-.timerContainer,
-#buttonsContainer,
-#innerRightContainer,
-#levelDisplayContainer{
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-}
+/*# sourceMappingURL=sticks.css.map */

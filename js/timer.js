@@ -1,38 +1,40 @@
-define(['jquery', 'flipClock'], function ($) {
-    var clock;
-    var timeLimit = 31;
+define([], function () {
+    var sec = 30;
+    var timeForCalc = sec * 10;
 
-    clock = $('#flipClock').FlipClock(timeLimit, {
-        clockFace: 'Counter',
-        countdown: true,
-        autoStart: true,
-        callbacks: {
-            stop: function () {
-                if (clock.getTime().time === 0) {
-                    clock.OnFinish();
-                }
+    var timerId, start;
+
+    this.Start = function () {
+        start = new Date();
+        timerId = window.setTimeout(function() {
+            Start();
+            countdown();
+            if(timeForCalc === 0)
+            {
+                Pause();
+                this.OnFinish();
             }
-        }
-    });
-
-    clock.stop();
-
-    clock.Reset = function () {
-        clock.stop();
-        clock.setTime(timeLimit);
+        }, 100);
     };
 
-    clock.Start = function () {
-        clock.start();
+    var countdown = function () {
+        document.getElementById("timerDiv").innerHTML = (--timeForCalc/10).toFixed(1);
     };
 
-    clock.Stop = function () {
-        clock.stop();
+    this.Reset = function () {
+        window.clearTimeout(timerId);
+        timeForCalc = sec * 10;
+        document.getElementById("timerDiv").innerHTML = sec.toFixed(1);
     };
 
-    clock.OnFinish = function () {
+    this.Pause = function () {
+        window.clearTimeout(timerId);
+    };
+
+    this.OnFinish = function () {
         console.log('Timer ended.');
+        // TODO: or throw ex?
     };
 
-    return clock;
+    return this;
 });
