@@ -1,18 +1,16 @@
-@import url(../lib/FlipClock/compiled/flipclock.css);
 html, body, input {
   font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
+  font-size: 1em;
   height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
   text-align: center; }
 
 .wholeContainer {
-  /* TODO: Media Queries */
-  /*height:100%;*/
-  /*width:100%;*/
+  height: 100%;
+  width: 100%;
   background: #34282c;
-  height: 500px;
-  width: 800px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -20,7 +18,7 @@ html, body, input {
   user-select: none;
   cursor: default; }
 
-.verticalAlignAndCenter, .leftSide .gameScreen #pauseScreenText, .rightSide .innerRightContainer, .rightSide .innerRightSubContainer .title, .rightSide .innerRightSubContainer #buttonsContainer, .rightSide .innerRightSubContainer #levelDisplayContainer, .rightSide .innerRightSubContainer #timerContainer {
+.verticalAlignAndCenter, .leftSide .gameScreen, .leftSide .gameScreen #pauseScreenText, .rightSide .innerRightContainer, .rightSide .innerRightSubContainer .title, .rightSide .innerRightSubContainer #buttonsContainer, .rightSide .innerRightSubContainer #levelDisplayContainer, .rightSide .innerRightSubContainer #timerContainer, .rightSide .innerRightSubContainer #timerDiv {
   left: 50%;
   top: 50%;
   position: absolute;
@@ -40,11 +38,6 @@ html, body, input {
 .notActive {
   display: none; }
 
-.screenContainer, .leftSide .gameScreen {
-  margin: 5%;
-  width: 85%;
-  height: 85%; }
-
 .leftSide {
   float: left;
   height: 100%;
@@ -52,10 +45,11 @@ html, body, input {
   position: relative; }
   .leftSide .gameScreen {
     background: #EDFDFF;
+    width: 85%;
+    height: 85%;
     position: absolute; }
     .leftSide .gameScreen #pauseScreenText {
       background: none;
-      font-size: 2em;
       text-align: left; }
 
 .rightSide {
@@ -74,14 +68,14 @@ html, body, input {
     width: 80%;
     position: relative; }
     .rightSide .innerRightSubContainer .title {
-      background: #f3ed4e;
+      background: #F3ED4E;
       border-color: #FF26C9;
       border-style: dotted;
       border-width: thick;
       color: #FF26C9;
       text-shadow: 2px 2px #FFF;
       width: 100%;
-      font-size: 2em; }
+      padding: 2%; }
     .rightSide .innerRightSubContainer input:invalid {
       background-color: #FFC0CB; }
     .rightSide .innerRightSubContainer .buttonText {
@@ -107,17 +101,8 @@ html, body, input {
       height: 60%;
       width: 100%; }
     .rightSide .innerRightSubContainer #levelDisplayContainer {
-      background: #EDFDFF;
-      position: absolute;
-      width: 100%; }
-    .rightSide .innerRightSubContainer #levelDisplayContainer.formField {
-      margin: 1%;
-      padding: 4%; }
-    .rightSide .innerRightSubContainer .levelDisplay {
-      font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
-      font-size: 1.8em;
-      vertical-align: middle;
-      width: 90%; }
+      color: #FF26C9;
+      position: absolute; }
     .rightSide .innerRightSubContainer .activeButton, .rightSide .innerRightSubContainer #playPauseButton.enabled:active, .rightSide .innerRightSubContainer #restartButton:active {
       position: relative;
       top: 6px; }
@@ -125,7 +110,6 @@ html, body, input {
       background-color: #6CBB3C;
       background-image: url(../images/play.svg);
       background-size: 100% 100%;
-      border: 0;
       -webkit-box-shadow: 0 6px 0 #569430;
       -moz-box-shadow: 0 6px 0 #569430;
       box-shadow: 0 6px 0 #569430; }
@@ -142,7 +126,6 @@ html, body, input {
       background-color: #26C9FF;
       background-image: url(../images/restart.svg);
       background-size: 100% 100%;
-      border: 0;
       -webkit-box-shadow: 0 6px 0 #00b6f2;
       -moz-box-shadow: 0 6px 0 #00b6f2;
       box-shadow: 0 6px 0 #00b6f2; }
@@ -151,8 +134,21 @@ html, body, input {
       -moz-box-shadow: 0 3px 0 #00b6f2;
       box-shadow: 0 3px 0 #00b6f2; }
     .rightSide .innerRightSubContainer #timerContainer {
-      width: 85%; }
-    .rightSide .innerRightSubContainer .flip-clock-wrapper {
-      margin: 0 !important; }
+      width: 85%;
+      height: 100%;
+      background-image: url(../images/stopwatch.svg);
+      background-size: 100% 100%; }
+    .rightSide .innerRightSubContainer #timerDiv {
+      color: #FF26C9; }
+
+@media only screen and (min-width: 400px) {
+  body {
+    font-size: 1.5em; } }
+@media only screen and (min-width: 768px) {
+  body {
+    font-size: 2em; } }
+@media only screen and (min-width: 1140px) {
+  body {
+    font-size: 3em; } }
 
 /*# sourceMappingURL=sticks.css.map */

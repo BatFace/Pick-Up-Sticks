@@ -1,28 +1,27 @@
-@import "../lib/FlipClock/compiled/flipclock.css";
 @import "mixins";
 
 $invalidInputColor: #FFC0CB;
-$fuschia: #FF26C9;
+$fuchsia: #FF26C9;
 $blueGrey: #EDFDFF;
 $playButtonColor: #6CBB3C;
 $playButtonActiveColor: #348017;
 $restartButtonColor: #26C9FF;
+$yellow: #F3ED4E;
 
 html, body, input {
   font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
+  font-size: 1em;
   height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
 .wholeContainer {
-  /* TODO: Media Queries */
-  /*height:100%;*/
-  /*width:100%;*/
+  height:100%;
+  width:100%;
   background: #34282c;
-  height: 500px;
-  width: 800px;
   @include user-select(none);
 }
 
@@ -46,12 +45,6 @@ html, body, input {
   display: none;
 }
 
-.screenContainer {
-  margin: 5%;
-  width: 85%;
-  height:85%;
-}
-
 .leftSide {
   float: left;
   height: 100%;
@@ -60,12 +53,13 @@ html, body, input {
 
   .gameScreen {
     background: $blueGrey;
-    @extend .biggest, .screenContainer;
+    width: 85%;
+    height:85%;
+    @extend .biggest, .verticalAlignAndCenter;
     position: absolute;
 
     #pauseScreenText {
       background: none;
-      font-size: 2em;
       text-align: left;
       @extend .verticalAlignAndCenter;
     }
@@ -94,14 +88,14 @@ html, body, input {
 
       .title {
         @extend .verticalAlignAndCenter;
-        background: #f3ed4e;
-        border-color: $fuschia;
+        background: $yellow;
+        border-color: $fuchsia;
         border-style: dotted;
         border-width: thick;
-        color: $fuschia;
+        color: $fuchsia;
         text-shadow: 2px 2px #FFF;
         width: 100%;
-        font-size: 2em;
+        padding: 2%;
       }
 
       input:invalid {
@@ -135,22 +129,9 @@ html, body, input {
       }
 
       #levelDisplayContainer {
-        background: $blueGrey;
+        color: $fuchsia;
         position: absolute;
-        width: 100%;
         @extend .verticalAlignAndCenter;
-      }
-
-      #levelDisplayContainer.formField {
-        margin: 1%;
-        padding: 4%;
-      }
-
-      .levelDisplay {
-        font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
-        font-size: 1.8em;
-        vertical-align: middle;
-        width: 90%;
       }
 
       .activeButton {
@@ -162,7 +143,6 @@ html, body, input {
         background-color: $playButtonColor;
         background-image: url(../images/play.svg);
         background-size: 100% 100%;
-        border: 0;
         @include box-shadow(0, 6px, 0, darken($playButtonColor, 10%));
       }
 
@@ -180,7 +160,6 @@ html, body, input {
         background-color: $restartButtonColor;
         background-image: url(../images/restart.svg);
         background-size: 100% 100%;
-        border: 0;
         @include box-shadow(0, 6px, 0, darken($restartButtonColor, 10%));
       }
 
@@ -191,12 +170,33 @@ html, body, input {
 
       #timerContainer {
         width: 85%;
+        height: 100%;
+        @extend .verticalAlignAndCenter;
+        background-image: url(../images/stopwatch.svg);
+        background-size: 100% 100%;
+      }
+
+      #timerDiv {
+        color: $fuchsia;
         @extend .verticalAlignAndCenter;
       }
-
-      .flip-clock-wrapper {
-        margin: 0 !important;
-      }
     }
+}
 
+@media only screen and (min-width: 400px) {
+  body {
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    font-size: 2em;
+  }
+}
+
+@media only screen and (min-width: 1140px) {
+  body {
+    font-size: 3em;
+  }
 }

@@ -13,7 +13,7 @@
         <div id="gameArea" class="gameScreen"></div>
         <div id="pauseScreen" class="gameScreen">
             <div id="pauseScreenText">
-                <span id="startText" class="active">Let's go!</span>
+                <span id="startText" class="active">Let's play!</span>
                 <span id="pausedText" class="notActive">Paused.</span>
                 <span id="wonText" class="notActive">You won! Why not pick a different level?</span>
                 <span id="lostText" class="notActive">You lost. That's a shame.</span>
@@ -27,9 +27,9 @@
             </div>
             <div class="innerRightSubContainer">
                 <form id="gameLevelForm" class="verticalAlignMiddle">
-                    <div id="levelDisplayContainer" class="formField">
-                        <label class="levelDisplay" for="levelNumericControl">Level</label>
-                        <input class="levelDisplay" type="number" id="levelNumericControl" min="1" max="999"
+                    <div id="levelDisplayContainer">
+                        Level
+                        <input type="number" id="levelNumericControl" min="1" max="999"
                                step="1" value="1"/>
                     </div>
                     <button type=submit style="display:none;"></button>
@@ -43,7 +43,7 @@
             </div>
             <div class="innerRightSubContainer">
                 <div id="timerContainer">
-                    <div id="flipClock"></div>
+                    <div id="timerDiv"></div>
                 </div>
             </div>
         </div>

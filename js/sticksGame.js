@@ -4,7 +4,7 @@ define(['../js/timer.js', 'jquery', '../lib/d3/d3.min.js'], function (timer, $) 
         var globalTimer = timer;
         var gameLevel = 1;
 
-        //override timer's OnFinish method
+        // override timer's OnFinish method
         globalTimer.OnFinish = loseGame;
 
         var stickColors = ["#3cb371", "#cd5c5c", "#f0e68c", "#9370db", "#afeeee"];
@@ -100,7 +100,8 @@ define(['../js/timer.js', 'jquery', '../lib/d3/d3.min.js'], function (timer, $) 
                     oldStick = new sticky(0.5, 0.5, ninetyDeg, stickColors[getRandomIntInRange(0, 4)], x, y);
                 }
 
-                newStick = generateNewStickXY(oldStick, new sticky(s, t, rotation, stickColors[getRandomIntInRange(0, 4)]));
+                newStick = generateNewStickXY(oldStick,
+                                              new sticky(s, t, rotation, stickColors[getRandomIntInRange(0, 4)]));
                 dataSet.push(newStick);
             }
 
@@ -266,7 +267,7 @@ define(['../js/timer.js', 'jquery', '../lib/d3/d3.min.js'], function (timer, $) 
 
         function playPause() {
             if (!$('#pauseScreen').is(":visible")) {
-                globalTimer.Stop();
+                globalTimer.Pause();
                 makePauseScreenElementActive('#pausedText');
             }
             else {
@@ -276,7 +277,7 @@ define(['../js/timer.js', 'jquery', '../lib/d3/d3.min.js'], function (timer, $) 
         }
 
         function winGame() {
-            globalTimer.Stop();
+            globalTimer.Pause();
             makePauseScreenElementActive('#wonText');
             disablePlayPauseButton();
             pulseLevelDisplay();
