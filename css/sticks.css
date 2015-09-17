@@ -1,6 +1,6 @@
 html, body, input {
   font-family: DejaVu Sans Mono, Menlo, Consolas, Lucida Console, monospace;
-  font-size: 1em;
+  font-size: 4vh;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -28,7 +28,7 @@ html, body, input {
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%); }
 
-.biggest, .leftSide .gameScreen, .rightSide .innerRightContainer {
+.biggest, .rightSide .innerRightContainer, .svg-content-responsive {
   height: 100%;
   width: 100%; }
 
@@ -40,14 +40,15 @@ html, body, input {
 
 .leftSide {
   float: left;
-  height: 100%;
+  height: 85%;
   width: 70%;
   position: relative; }
   .leftSide .gameScreen {
     background: #EDFDFF;
     width: 85%;
-    height: 85%;
-    position: absolute; }
+    margin-top: 5%;
+    padding-top: 28.33%;
+    padding-bottom: 28.33%; }
     .leftSide .gameScreen #pauseScreenText {
       background: none;
       text-align: left; }
@@ -119,9 +120,9 @@ html, body, input {
       box-shadow: 0 3px 0 #22550f; }
     .rightSide .innerRightSubContainer #playPauseButton.disabled {
       background-color: #a4d885;
-      -webkit-box-shadow: 0 6px 0 #6CBB3C;
-      -moz-box-shadow: 0 6px 0 #6CBB3C;
-      box-shadow: 0 6px 0 #6CBB3C; }
+      -webkit-box-shadow: 0 3px 0 #6CBB3C;
+      -moz-box-shadow: 0 3px 0 #6CBB3C;
+      box-shadow: 0 3px 0 #6CBB3C; }
     .rightSide .innerRightSubContainer #restartButton {
       background-color: #26C9FF;
       background-image: url(../images/restart.svg);
@@ -141,14 +142,13 @@ html, body, input {
     .rightSide .innerRightSubContainer #timerDiv {
       color: #FF26C9; }
 
-@media only screen and (min-width: 400px) {
-  body {
-    font-size: 1.5em; } }
-@media only screen and (min-width: 768px) {
-  body {
-    font-size: 2em; } }
-@media only screen and (min-width: 1140px) {
-  body {
-    font-size: 3em; } }
+.svg-container {
+  position: relative;
+  overflow: hidden; }
+
+.svg-content-responsive {
+  position: absolute;
+  left: 0;
+  top: 0; }
 
 /*# sourceMappingURL=sticks.css.map */
