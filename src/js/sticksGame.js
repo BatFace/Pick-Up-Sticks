@@ -287,7 +287,6 @@ define(['require', 'timer', 'jquery', 'd3'], function (require) {
         }
 
         function playPause() {
-            debugger;
             if (!$('#pauseScreen').is(":visible")) {
                 globalTimer.Pause();
                 makePauseScreenElementActive('#pausedText');
