@@ -1,7 +1,7 @@
 # Pick-Up-Sticks
 An HTML/JavaScript implementation of the game Pick-up-sticks.
 
-![Preview](/images/PickUpSticksImage.png)
+![Preview](/src/imagesPickUpSticksImage.png)
 
 [Demo](http://batface.github.io/Pick-Up-Sticks/)
 
