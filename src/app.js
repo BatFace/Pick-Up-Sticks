@@ -1,11 +1,8 @@
-requirejs.config({
-    paths: {
-        jquery: './tmpLib/jquery/dist/jquery.min',
-        d3: './tmpLib/d3/d3.min',
-        timer: './js/timer'
-    }
-});
+//import { timer } from './js/timer';
+//import d3 from 'd3';
+import { sticksGameES6 } from './js/sticksGameES6';
+import $ from 'jquery';
 
-requirejs(["js/sticksGame"], function(main) {
-    main();
+$(document).ready(function () {
+    sticksGameES6();
 });

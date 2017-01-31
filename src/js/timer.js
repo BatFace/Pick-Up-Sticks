@@ -1,40 +1,28 @@
-define([], function () {
-    var sec = 30;
-    var timeForCalc = sec * 10;
-
-    var timerId, start;
-
-    this.Start = function () {
-        start = new Date();
-        timerId = window.setTimeout(function() {
-            Start();
-            countdown();
-            if(timeForCalc === 0)
-            {
-                Pause();
-                this.OnFinish();
+const timer = {
+    startTime: 30000,
+    currentTime: 30000,
+    onFinish: function () {
+    },
+    start: function () {
+        setTimeout(function () {
+            this.currentTime = this.currentTime - 1000;
+            if (this.currentTime === 0) {
+                this.onFinish();
             }
-        }, 100);
-    };
+        }, 1000);
+    },
+    reset: function () {
+        this.currentTime = this.startTime;
+    },
+    pause: function () {
+        clearTimeout(this.start);
+    },
+    finish: function () {
+        this.onFinish();
+    },
+    currentTimeInSeconds: function () {
+        return this.currentTime / 1000;
+    }
+};
 
-    var countdown = function () {
-        document.getElementById("timerDiv").innerHTML = (--timeForCalc/10).toFixed(1);
-    };
-
-    this.Reset = function () {
-        window.clearTimeout(timerId);
-        timeForCalc = sec * 10;
-        document.getElementById("timerDiv").innerHTML = sec.toFixed(1);
-    };
-
-    this.Pause = function () {
-        window.clearTimeout(timerId);
-    };
-
-    this.OnFinish = function () {
-        console.log('Timer ended.');
-        // TODO: or throw ex?
-    };
-
-    return this;
-});
+export { timer };
