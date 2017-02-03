@@ -1,4 +1,4 @@
-import Stick from './stick';
+import Stick from './class/stick';
 
 const LOW_CROSSING_LIMIT = 0.1;
 const HIGH_CROSSING_LIMIT = 0.9;

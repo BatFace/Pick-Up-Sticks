@@ -1,6 +1,6 @@
 import d3 from 'd3';
 import $ from 'jquery';
-import Timer from './timer';
+import Timer from './class/timer';
 import calculateSticks from './stickLayerOuter';
 
 const gameArea = () => {return calculateGameArea()};
@@ -29,23 +29,23 @@ export function sticksGameES6() {
     restartGame({data: { timer: globalTimer }});
 }
 
-function restartGame(event) {
-    event.data.timer.reset();
-    makePauseScreenElementActive('#startText');
-
-    if (!$('#levelNumericControl')[0].checkValidity()) {
-        disablePlayPauseButton();
-
-        // Force the browser display native HTML5 error
-        // for the selected level number
-        $('#gameLevelForm').find(':submit').click();
-    }
-    else {
-        enablePlayPauseButton(event.data.timer);
-        redraw(event.data.timer);
-    }
-}
-
+// function restartGame(event) {
+//     event.data.timer.reset();
+//     makePauseScreenElementActive('#startText');
+//
+//     if (!$('#levelNumericControl')[0].checkValidity()) {
+//         disablePlayPauseButton();
+//
+//         // Force the browser display native HTML5 error
+//         // for the selected level number
+//         $('#gameLevelForm').find(':submit').click();
+//     }
+//     else {
+//         enablePlayPauseButton(event.data.timer);
+//         redraw(event.data.timer);
+//     }
+// }
+//
 function makePauseScreenElementActive(element) {
     $("#pauseScreenText > span").addClass('notActive').removeClass('active');
     $(element).removeClass('notActive').addClass('active');

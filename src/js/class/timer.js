@@ -1,3 +1,5 @@
+import MicroEvent from 'microevent';
+
 export default class Timer{
     constructor(){
         this.startTime =  30000;
@@ -5,8 +7,10 @@ export default class Timer{
         this.onFinish =  () => {
         };
         this.start =  () => {
-            setTimeout(() => {
+            setInterval(function(){
                 this.currentTime = this.currentTime - 1000;
+                self.trigger('tick', this.currentTime);
+
                 if (this.currentTime === 0) {
                     this.onFinish();
                 }
@@ -21,8 +25,11 @@ export default class Timer{
         this.finish =  () => {
             this.onFinish();
         };
-        this.currentTimeInSeconds =  () => {
-            return this.currentTime / 1000;
-        }
+
+        this.bind('reset', function() {
+            this.reset();
+        });
     }
 };
+
+MicroEvent.mixin(Timer);
