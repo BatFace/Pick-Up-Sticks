@@ -1,5 +1,4 @@
 import React from 'react';
-import MicroEvent from 'microevent';
 
 export default class Timer extends React.Component {
     constructor(props) {
@@ -10,14 +9,6 @@ export default class Timer extends React.Component {
         };
     }
 
-    componentDidMount(){
-        this.bind('tick', function(time) {
-            this.setState({
-                timeInSeconds: time / 1000
-            });
-        });
-    }
-
     render() {
         return (
             <div id="timerContainer">
@@ -26,5 +17,3 @@ export default class Timer extends React.Component {
         );
     }
 }
-
-MicroEvent.mixin(Timer);

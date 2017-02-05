@@ -1,6 +1,6 @@
 import d3 from 'd3';
 import $ from 'jquery';
-import Timer from './class/timer';
+import Timer from './classes/timer';
 import calculateSticks from './stickLayerOuter';
 
 const gameArea = () => {return calculateGameArea()};

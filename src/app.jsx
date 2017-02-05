@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SticksGame from './js/view/sticksGame.jsx';
+import SticksGame from './js/views/sticksGame.jsx';
+import { Provider } from 'react-redux';
+import store from './js/store';
 
 ReactDOM.render(
-    <SticksGame />,
-    document.body.appendChild(document.createElement('div'))
+    <Provider store={store}>
+        <SticksGame store={store}/>
+    </Provider>,
+    document.getElementById('app-root')
 );

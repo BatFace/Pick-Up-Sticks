@@ -3,14 +3,18 @@ html, body, input {
   font-size: 4vh;
   height: 100%;
   width: 100%;
-  margin: 0;
-  padding: 0;
   text-align: center; }
+
+#app-root {
+  display: Inline; }
 
 .wholeContainer {
   height: 100%;
   width: 100%;
   background: #34282c;
+  position: relative;
+  margin: 0;
+  padding: 0;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
