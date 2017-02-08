@@ -21,15 +21,15 @@ import { INIT, PAUSED, WON, LOST, ACTIVE } from '../actions/gameStateAction';
 export default function gameState (state = {}, action) {
     switch (action.state) {
         case ACTIVE:
-            return { message : '' };
+            return { name: ACTIVE, message : '' };
         case PAUSED:
-            return { message: 'Paused.' };
+            return { name: PAUSED, message: 'Paused.' };
         case WON:
-            return { message: 'You won! Why not pick a different level?' };
+            return { name: WON, message: 'You won! Why not pick a different level?' };
         case LOST:
-            return { message: 'You lost. That\'s a shame.' };
+            return { name: LOST, message: 'You lost. That\'s a shame.' };
         case INIT:
         default:
-            return { message: 'Let\'s play!' };
+            return { name: INIT, message: 'Let\'s play!' };
     }
 }

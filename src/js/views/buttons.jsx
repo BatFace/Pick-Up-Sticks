@@ -14,8 +14,8 @@ export class Buttons extends React.Component {
         //{'gameButton ' + this.state.current === PAUSED ? '' : 'enabled'}
         return (
             <div id="buttonsContainer">
-                <div className="gameButton enabled" id="playPauseButton" onClick={ this.togglePlayGame }></div>
-                <div className="gameButton" id="restartButton" onClick={ this.restartGame }></div>
+                <div className="gameButton enabled" id="playPauseButton" onClick={ this.togglePlayGame.bind(this) }></div>
+                <div className="gameButton" id="restartButton" onClick={ this.restartGame.bind(this) }></div>
             </div>
         );
     }
@@ -25,7 +25,9 @@ export class Buttons extends React.Component {
     }
 
     togglePlayGame() {
-        if(this.props.gameState === PAUSED) {
+    const {gameState} = this.props;
+
+        if(gameState.name === PAUSED) {
            setGameState(ACTIVE);
         } else {
             setGameState(PAUSED);

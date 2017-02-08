@@ -3,10 +3,12 @@ html, body, input {
   font-size: 4vh;
   height: 100%;
   width: 100%;
-  text-align: center; }
+  margin: 0;
+  text-align: center;
+  overflow: hidden; }
 
 #app-root {
-  display: Inline; }
+  display: inline; }
 
 .wholeContainer {
   height: 100%;
