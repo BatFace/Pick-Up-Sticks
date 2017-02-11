@@ -17,6 +17,7 @@
         "babelify",
         {
           "presets": [
+            "babel-polyfill",
             "es2015",
             "react"
           ]
@@ -40,6 +41,7 @@
   "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-core": "^6.22.1",
+    "babel-polyfill": "^6.22.0",
     "babel-preset-env": "^1.1.8",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.22.0",
@@ -56,6 +58,7 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "redux-saga": "^0.14.3"
   }
 }

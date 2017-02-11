@@ -3,15 +3,7 @@ import { connect } from 'react-redux'
 import { INIT, PAUSED, ACTIVE, setGameState } from '../actions/gameStateAction';
 
 export class Buttons extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
-
     render() {
-        // TODO: re-implement/get rid of button disabling
-        //{'gameButton ' + this.state.current === PAUSED ? '' : 'enabled'}
         return (
             <div id="buttonsContainer">
                 <div className="gameButton enabled" id="playPauseButton" onClick={ this.togglePlayGame.bind(this) }></div>
@@ -21,16 +13,16 @@ export class Buttons extends React.Component {
     }
 
     restartGame() {
-        setGameState(INIT);
+        this.props.setGameState(INIT);
     }
 
     togglePlayGame() {
     const {gameState} = this.props;
 
         if(gameState.name === PAUSED) {
-           setGameState(ACTIVE);
+           this.props.setGameState(ACTIVE);
         } else {
-            setGameState(PAUSED);
+            this.props.setGameState(PAUSED);
         }
     }
 }
@@ -41,6 +33,15 @@ function mapStateToProps(state) {
     }
 }
 
+var mapDispatchToProps = function(dispatch){
+    return {
+        setGameState: function(newGameState){
+            dispatch(setGameState(newGameState));
+        }
+    }
+};
+
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Buttons)

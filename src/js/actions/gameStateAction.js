@@ -6,6 +6,6 @@ export const ACTIVE = 'active';
 
 export function setGameState(newState) {
     return {
-        state : newState
+        type: newState,
     };
 }
