@@ -19,7 +19,9 @@ import { RESET_STICKS_COUNT, REMOVE_STICK } from '../actions/sticksCountAction';
 //     }
 // };
 
-export default function gameState (state = {}, action) {
+const intialState = { name: INIT, message: 'Let\'s play!' };
+
+export default function gameState (state = intialState, action) {
     switch (action.type) {
         case ACTIVE:
             return { name: ACTIVE, message : '' };
@@ -34,8 +36,9 @@ export default function gameState (state = {}, action) {
         case LOST:
             return { name: LOST, message: 'You lost. That\'s a shame.' };
         case INIT:
+            return intialState;
         case RESET_STICKS_COUNT:
         default:
-            return { name: INIT, message: 'Let\'s play!' };
+            return state;
     }
 }

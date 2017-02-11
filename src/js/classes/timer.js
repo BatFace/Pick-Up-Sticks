@@ -1,3 +1,5 @@
+// TODO: remove this once game logic has been refactored
+
 export default class Timer{
     constructor(){
         this.startTime =  30000;

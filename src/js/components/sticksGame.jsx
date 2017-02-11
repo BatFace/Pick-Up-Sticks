@@ -9,8 +9,7 @@ export default class SticksGame extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            gameLevel: 1,
-            timer: new Timer()
+            gameLevel: 1
         };
     }
 

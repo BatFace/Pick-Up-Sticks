@@ -13,14 +13,6 @@ export default function sticksCount (state = defaultState, action) {
                 currentSticksCount: action.initialSticksCount
             });
         case REMOVE_STICK:
-            // if(action.stickId === currentSticksCount) {
-            //     return Object.assign({}, state, {
-            //         currentSticksCount: state.currentSticksCount - 1
-            //     })
-            // }
-            // else {
-            //     return state
-            // }
             return Object.assign({}, state, {
                 currentSticksCount: state.currentSticksCount - 1
             })

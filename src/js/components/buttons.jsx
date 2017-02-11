@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { INIT, PAUSED, ACTIVE, setGameState } from '../actions/gameStateAction';
+import { start, stop, reset } from '../actions/timerAction';
 
 export class Buttons extends React.Component {
     render() {
@@ -12,17 +13,29 @@ export class Buttons extends React.Component {
         );
     }
 
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.gameState === this.props.gameState){
+            this.setState({
+                gameState: nextProps.gameState
+            })
+        }
+    }
+
     restartGame() {
         this.props.setGameState(INIT);
+        this.props.resetTimer();
     }
 
     togglePlayGame() {
     const {gameState} = this.props;
 
-        if(gameState.name === PAUSED) {
-           this.props.setGameState(ACTIVE);
+        debugger;
+        if(gameState.name === PAUSED || gameState.name === INIT) {
+            this.props.setGameState(ACTIVE);
+            this.props.startTimer();
         } else {
             this.props.setGameState(PAUSED);
+            this.props.stopTimer();
         }
     }
 }
@@ -33,10 +46,19 @@ function mapStateToProps(state) {
     }
 }
 
-var mapDispatchToProps = function(dispatch){
+var mapDispatchToProps = (dispatch) => {
     return {
-        setGameState: function(newGameState){
+        setGameState: (newGameState) => {
             dispatch(setGameState(newGameState));
+        },
+        startTimer: () => {
+            dispatch(start());
+        },
+        stopTimer: () => {
+            dispatch(stop());
+        },
+        resetTimer: () => {
+            dispatch(reset());
         }
     }
 };

@@ -1,20 +1,36 @@
 import { START, STOP, TICK, RESET } from '../actions/timerAction';
 
 //Based on https://github.com/jaysoo/example-redux-saga/blob/master/src/timer
-export default function timer (
-    state = {
-        status: 'Stopped',
-        seconds: 0
-    }, action) => {
+
+export const initialState = {
+    status: 'Stopped',
+    seconds: 30
+};
+
+export default (
+    state = initialState, action) => {
     switch (action.type) {
         case START:
-            return { ...state, status: 'Running' };
+            return Object.assign({}, state, {
+                status: 'Running'
+            });
         case STOP:
-            return { ...state, status: 'Stopped' };
+            return Object.assign({}, state, {
+                status: 'Stopped'
+            });
         case TICK:
-            return { ...state, seconds: state.seconds + 1 };
+            if(state.seconds - 1 > 0) {
+                return Object.assign({}, state, {
+                    seconds: state.seconds - 1
+                });
+            } else {
+                return Object.assign({}, state, {
+                    seconds: 0,
+                    status: 'Stopped'
+                });
+            }
         case RESET:
-            return { ...state, seconds: 0 };
+            return Object.assign({}, initialState);
         default:
             return state
     }
