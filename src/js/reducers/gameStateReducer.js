@@ -1,5 +1,5 @@
 import { INIT, PAUSED, WON, LOST, ACTIVE } from '../actions/gameStateAction';
-import { RESET_STICKS_COUNT, REMOVE_STICK } from '../actions/sticksCountAction';
+import { RESET_STICKS_COUNT, REMOVE_STICK } from '../actions/sticksAction';
 
 // export const States = {
 //     [INIT]: {

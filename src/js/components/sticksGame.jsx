@@ -6,13 +6,6 @@ import Buttons from './buttons.jsx';
 import LevelControl from './levelControl.jsx';
 
 export default class SticksGame extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            gameLevel: 1
-        };
-    }
-
     render() {
         return (
             <div className="wholeContainer">

@@ -6,7 +6,7 @@ import createSagaMiddleware from 'redux-saga'
 
 import SticksGame from './js/components/sticksGame.jsx';
 import gameState from './js/reducers/gameStateReducer';
-import sticksCount from './js/reducers/sticksCountReducer';
+import sticks from './js/reducers/sticksReducer';
 import timer from './js/reducers/timerReducer';
 import timerSaga from './js/sagas/timerSaga';
 
@@ -15,7 +15,7 @@ const createStoreWithMiddleware = applyMiddleware(sagaMiddleware)(createStore);
 
 const reducers = combineReducers({
     gameState,
-    sticksCount,
+    sticks,
     timer
 });
 

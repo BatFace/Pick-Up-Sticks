@@ -1,4 +1,4 @@
-import { SET_INITIAL_COUNT, REMOVE_STICK, RESET_STICKS_COUNT } from '../actions/sticksCountAction';
+import { SET_INITIAL_COUNT, REMOVE_STICK, RESET_STICKS_COUNT } from '../actions/sticksAction';
 
 const defaultState = {
     initialSticksCount: 1,

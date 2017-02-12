@@ -42,3 +42,9 @@ export default connect(
 )(LevelControl)
 
 
+// TODO: Pulse level display on gameState.WON
+// function pulseLevelDisplay(){
+//     $("#levelNumericControl")
+//         .fadeOut(100).fadeIn(100)
+//         .fadeOut(100).fadeIn(100);
+// }
