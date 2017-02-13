@@ -18,23 +18,28 @@ export default class SticksSVG{
                     + " "
                     + gameArea.gameAreaBounds.height);
 
-            this.update(el, props, dataSet);
+            this.update(el, props, dataSet, gameArea);
         };
 
-        this.update = (el, props, dataSet) => {
-            this._drawSticks(el, props, dataSet);
+        this.update = (el, props, dataSet, gameArea) => {
+            this._drawSticks(el, props, dataSet, gameArea);
         };
 
-        this._drawSticks = function(el, props, data) {
-            const rectangles = d3.select(el).selectAll('.rect').data(data);
+        this._drawSticks = function(el, props, data, gameArea) {
+            const rectangles = d3.select(el)
+                                 .select("svg")
+                                 .selectAll("rect")
+                                 .data(data);
 
             rectangles.enter().append("rect");
 
+            rectangles.exit().remove();
+
             rectangles
-                .attr("x", function (d, i) {
+                .attr("x", function (d) {
                     return d.x;
                 })
-                .attr("y", function (d, i) {
+                .attr("y", function (d) {
                     return d.y;
                 })
                 .attr("width", gameArea.stickWidth)
@@ -51,16 +56,16 @@ export default class SticksSVG{
                     return d.color;
                 })
                 .on("click", function (d, i) {
-                    if (index === currentStickIndex) {
-                        if (currentStickIndex === 0) {
+                    // TODO: work on stick remove logic
+                    console.log(data.length-1);
+                    if (i === data.length-1) {
+                        if (i === 0) {
                             props.setGameState(WON);
                         } else {
-                            dataSet.pop();
+                            data.pop();
                         }
                     }
                 });
-
-            rectangles.exit().remove();
         };
     }
 };

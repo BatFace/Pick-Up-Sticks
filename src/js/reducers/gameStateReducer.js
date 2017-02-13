@@ -1,24 +1,6 @@
 import { INIT, PAUSED, WON, LOST, ACTIVE } from '../actions/gameStateAction';
 import { RESET_STICKS_COUNT, REMOVE_STICK } from '../actions/sticksAction';
 
-// export const States = {
-//     [INIT]: {
-//         message: 'Let\'s play!',
-//     },
-//     [PAUSED]: {
-//         message: 'Paused.',
-//     },
-//     [WON]: {
-//         message: 'You won! Why not pick a different level?',
-//     },
-//     [LOST]: {
-//         message: 'You lost. That\'s a shame.',
-//     },
-//     [ACTIVE]: {
-//         message: ''
-//     }
-// };
-
 const intialState = { name: INIT, message: 'Let\'s play!' };
 
 export default function gameState (state = intialState, action) {

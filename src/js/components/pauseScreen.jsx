@@ -1,16 +1,26 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { ACTIVE } from '../actions/gameStateAction';
+
 
 export class PauseScreen extends React.Component {
     constructor(props) {
         super(props);
     }
 
+    getStyle(){
+        const displayValue = this.props.gameState.name !== ACTIVE ? 'block' : 'none';
+
+        return { display: displayValue };
+    }
+
     render() {
         return (
-            <div id="pauseScreen" className="gameScreen">
+            <div id="pauseScreen"
+                 style={this.getStyle()}
+                 className="gameScreen">
                 <div id="pauseScreenText">
-                    <span className="active">{ this.props.message }</span>
+                    <span className="active">{ this.props.gameState.message }</span>
                 </div>
             </div>
         );
@@ -19,7 +29,7 @@ export class PauseScreen extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        message: state.gameState.message
+        gameState: state.gameState
     }
 }
 

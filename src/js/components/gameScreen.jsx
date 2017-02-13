@@ -9,7 +9,8 @@ export class GameScreen extends React.Component {
         super(props);
 
         this.state = {
-            sticksSVG: new sticksSVG()
+            sticksSVG: new sticksSVG(),
+            gameLevel: 3 // TODO: needs to come from level control
         }
     }
 
@@ -23,17 +24,6 @@ export class GameScreen extends React.Component {
         const el = ReactDOM.findDOMNode(this.refs.gameArea);
         this.state.sticksSVG.create(el, this.props, this.state);
     }
-
-    // componentDidUpdate() {
-    //     const el = ReactDOM.findDOMNode('gameArea');
-    //     this.state.sticksSVG.update(el, this.getSticksState());
-    // }
-    //
-    // getSticksState() {
-    //     return {
-    //         data: this.props.data
-    //     };
-    // }
 }
 
 function mapStateToProps(state) {
