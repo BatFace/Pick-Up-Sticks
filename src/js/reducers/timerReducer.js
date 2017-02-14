@@ -1,24 +1,25 @@
-import { START, STOP, TICK, RESET } from '../actions/timerAction';
-
-//Based on https://github.com/jaysoo/example-redux-saga/blob/master/src/timer
+import { START_TIMER, STOP_TIMER, TICK_TIMER, RESET_TIMER } from '../actions/timerAction';
+import { PAUSED, ACTIVE } from '../actions/gameStateAction';
 
 export const initialState = {
-    status: 'Stopped',
+    status: 'Paused',
     seconds: 30
 };
 
 export default (
     state = initialState, action) => {
     switch (action.type) {
-        case START:
+        case ACTIVE:
+        case START_TIMER:
             return Object.assign({}, state, {
                 status: 'Running'
             });
-        case STOP:
+        case PAUSED:
+        case STOP_TIMER:
             return Object.assign({}, state, {
-                status: 'Stopped'
+                status: 'Paused'
             });
-        case TICK:
+        case TICK_TIMER:
             if(state.seconds - 1 > 0) {
                 return Object.assign({}, state, {
                     seconds: state.seconds - 1
@@ -26,17 +27,15 @@ export default (
             } else {
                 return Object.assign({}, state, {
                     seconds: 0,
-                    status: 'Stopped'
+                    status: 'Finished'
                 });
             }
-        case RESET:
+        case RESET_TIMER:
             return Object.assign({}, initialState);
         default:
             return state
     }
 }
-
-export const getTimeInSeconds = (state) => state.seconds;
 
 export const getStatus = (state) => state.status;
 

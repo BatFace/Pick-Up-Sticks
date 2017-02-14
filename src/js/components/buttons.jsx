@@ -32,10 +32,8 @@ export class Buttons extends React.Component {
         debugger;
         if(gameState.name === PAUSED || gameState.name === INIT) {
             this.props.setGameState(ACTIVE);
-            this.props.startTimer();
         } else {
             this.props.setGameState(PAUSED);
-            this.props.stopTimer();
         }
     }
 }
