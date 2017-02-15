@@ -1,5 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { setNewSticksCount } from '../actions/sticksAction';
 
 export class LevelControl extends React.Component {
     constructor(props) {
@@ -16,31 +17,32 @@ export class LevelControl extends React.Component {
                         min="1"
                         max="999"
                         step="1"
-                        value="1"
-                        onChange={ this.onChange.bind(this) }/>
+                        value={ this.props.gameLevel }
+                        onChange={ this.props.setSticksCount }/>
                 </div>
             </div>
         );
     }
-
-    onChange(value) {
-        this.setState({
-            level: value
-        });
-    }
-
 }
 
 function mapStateToProps(state) {
     return {
-        //timer: state.timer
-    }
+        gameLevel: state.sticks.initialSticksCount
+    };
 }
 
-export default connect(
-    mapStateToProps
-)(LevelControl)
+var mapDispatchToProps = (dispatch) => {
+    return {
+        setSticksCount: (e) => {
+            dispatch(setNewSticksCount(e.value));
+        }
+    }
+};
 
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(LevelControl)
 
 // TODO: Pulse level display on gameState.WON
 // function pulseLevelDisplay(){

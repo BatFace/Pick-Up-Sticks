@@ -42,15 +42,6 @@ export default function calculateSticks(gameLevel, gameArea) {
     return dataSet;
 }
 
-// function removeStick(dataSet, svg) {
-//     dataSet.pop();
-//     // TODO: reinstate this (can't be global const)
-//     //currentStickIndex--;
-//     // let rectangles = svg.selectAll("rect")
-//     //     .data(dataSet);
-//     // rectangles.exit().remove();
-// }
-
 function getRandomIntInRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
