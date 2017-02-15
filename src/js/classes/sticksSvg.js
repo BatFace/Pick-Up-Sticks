@@ -6,7 +6,7 @@ export default class SticksSVG{
     constructor(){
         this.create = (el, props, state) => {
             const gameArea = calculateGameArea(el),
-                dataSet = calculateSticks(state.gameLevel, gameArea);
+                dataSet = calculateSticks(props.gameLevel, gameArea);
 
             this.svg = d3.select(el)
                 .classed("svg-container", true)
@@ -56,14 +56,17 @@ export default class SticksSVG{
                     return d.color;
                 })
                 .on("click", function (d, i) {
-                    // TODO: work on stick remove logic
-                    console.log(data.length-1);
                     if (i === data.length-1) {
                         if (i === 0) {
                             props.setGameState(WON);
-                        } else {
-                            data.pop();
                         }
+
+                        data.pop();
+                        // TODO: Simplify this
+                        let rectangles = d3.select(this.parentElement)
+                            .selectAll("rect")
+                            .data(data);
+                        rectangles.exit().remove();
                     }
                 });
         };

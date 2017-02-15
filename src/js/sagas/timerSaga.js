@@ -23,6 +23,7 @@ function* runTimer() {
                 tick: call(wait, 1000)
             });
 
+            // TODO: Make timer stop when gameState.WON
             if (!winner.paused) {
                 yield put(timerActions.tick());
                 const timer = yield select(getTimer);

@@ -9,8 +9,7 @@ export class GameScreen extends React.Component {
         super(props);
 
         this.state = {
-            sticksSVG: new sticksSVG(),
-            gameLevel: 3 // TODO: needs to come from level control
+            sticksSVG: new sticksSVG()
         }
     }
 

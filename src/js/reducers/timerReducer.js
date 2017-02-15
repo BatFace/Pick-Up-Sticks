@@ -1,5 +1,5 @@
 import { START_TIMER, STOP_TIMER, TICK_TIMER, RESET_TIMER } from '../actions/timerAction';
-import { PAUSED, ACTIVE } from '../actions/gameStateAction';
+import { PAUSED, ACTIVE, WON } from '../actions/gameStateAction';
 
 export const initialState = {
     status: 'Paused',

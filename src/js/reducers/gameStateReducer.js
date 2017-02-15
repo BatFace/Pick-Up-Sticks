@@ -9,12 +9,8 @@ export default function gameState (state = intialState, action) {
             return { name: ACTIVE, message : '' };
         case PAUSED:
             return { name: PAUSED, message: 'Paused.' };
-        case REMOVE_STICK:
-            if(action.stickId === 0) {
-                return {name: WON, message: 'You won! Why not pick a different level?'};
-            } else {
-                return state;
-            }
+        case WON:
+            return {name: WON, message: 'You won! Why not pick a different level?'};
         case LOST:
             return { name: LOST, message: 'You lost. That\'s a shame.' };
         case INIT:
