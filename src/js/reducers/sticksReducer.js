@@ -2,23 +2,26 @@ import { REMOVE_STICK, RESET_STICKS_COUNT, SET_NEW_STICKS_COUNT } from '../actio
 
 const defaultState = {
     initialSticksCount: 1,
-    currentSticksCount: 0
+    currentSticksCount: 0,
+    createdAt: 0
 };
 
 export default function sticksCount (state = defaultState, action) {
     switch (action.type) {
         case REMOVE_STICK:
             return Object.assign({}, state, {
-                currentSticksCount: state.currentSticksCount - 1
-            })
+                currentSticksCount: state.currentSticksCount - 1,
+            });
         case RESET_STICKS_COUNT:
             return Object.assign({}, state, {
-                currentSticksCount: state.initialSticksCount
+                currentSticksCount: state.initialSticksCount,
+                createdAt: Date.now()
             });
         case SET_NEW_STICKS_COUNT:
             return Object.assign({}, state, {
                 initialSticksCount: action.count,
-                currentSticksCount: action.count
+                currentSticksCount: action.count,
+                createdAt: Date.now()
             });
         default:
             return state;

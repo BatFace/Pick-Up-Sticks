@@ -21,13 +21,23 @@ export class GameScreen extends React.Component {
 
     componentDidMount() {
         const el = ReactDOM.findDOMNode(this.refs.gameArea);
-        this.state.sticksSVG.create(el, this.props, this.state);
+        this.state.sticksSVG.create(el, this.props);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.createdAt > this.props.createdAt){
+            const el = ReactDOM.findDOMNode(this.refs.gameArea);
+            this.state.sticksSVG.update(el, nextProps);
+        }
     }
 }
 
 function mapStateToProps(state) {
+    const sticks = state.sticks;
+
     return {
-        gameLevel: state.sticks.initialSticksCount
+        gameLevel: sticks.initialSticksCount,
+        createdAt: sticks.createdAt
     };
 }
 

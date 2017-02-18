@@ -12,13 +12,13 @@ export class LevelControl extends React.Component {
             <div id="gameLevelForm">
                 <div id="levelDisplayContainer"> Level
                     <input title="levelNumericControl"
-                        type="number"
-                        id="levelNumericControl"
-                        min="1"
-                        max="999"
-                        step="1"
-                        value={ this.props.gameLevel }
-                        onChange={ this.props.setSticksCount }/>
+                           type="number"
+                            id="levelNumericControl"
+                            min="1"
+                            max="999"
+                            step="1"
+                            defaultValue={ this.props.gameLevel }
+                            onChange={ this.props.setSticksCount }/>
                 </div>
             </div>
         );
@@ -34,7 +34,7 @@ function mapStateToProps(state) {
 var mapDispatchToProps = (dispatch) => {
     return {
         setSticksCount: (e) => {
-            dispatch(setNewSticksCount(e.value));
+            dispatch(setNewSticksCount(e.target.value));
         }
     }
 };

@@ -1,43 +1,37 @@
-import { actionChannel, call, take, put, race } from 'redux-saga/effects'
-import { cancel, select } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
+import {select, cancel, put, call, takeEvery, takeLatest} from 'redux-saga/effects';
 import * as timerActions from '../actions/timerAction'
 import * as gameStateActions from '../actions/gameStateAction';
+import * as stickActions from '../actions/sticksAction';
 import 'babel-polyfill';
 
-export const getTimer = (state) => state.timer;
-
-// Based on https://github.com/jaysoo/example-redux-saga/blob/master/src/timer
-const wait = ms => (
-    new Promise(resolve => {
-        setTimeout(() => resolve(), ms)
-    })
-)
-
+// Based on http://stackoverflow.com/a/37693674
 function* runTimer() {
-    const activeChannel = yield actionChannel(gameStateActions.ACTIVE);
+    yield call(delay, 1000);
+    yield put(timerActions.tick());
+    const timer = yield select(state => state.timer);
 
-    while (yield take(activeChannel)) {
-        while (true) {
-            const winner = yield race({
-                paused: take(gameStateActions.PAUSED),
-                tick: call(wait, 1000)
-            });
-
-            // TODO: Make timer stop when gameState.WON
-            if (!winner.paused) {
-                yield put(timerActions.tick());
-                const timer = yield select(getTimer);
-
-                if (timer.status === 'Finished') {
-                    // TODO: check synchronicity
-                    yield put(gameStateActions.loseGame());
-                    break;
-                }
-            } else {
-                    break;
-                }
-            }
-        }
+    if (timer.status === 'Finished') {
+        yield put(gameStateActions.loseGame());
+    }
 }
 
-export default runTimer
+export default function* runTimerSaga() {
+    const workerTask = yield takeEvery([
+        gameStateActions.ACTIVE,
+        timerActions.TICK_TIMER
+    ], runTimer);
+
+    yield takeLatest([
+        gameStateActions.PAUSED,
+        gameStateActions.WON,
+        gameStateActions.INIT,
+        stickActions.RESET_STICKS_COUNT,
+        stickActions.SET_NEW_STICKS_COUNT
+    ], pauseTimerSaga, workerTask);
+}
+
+function* pauseTimerSaga (task) {
+    yield cancel(task);
+    yield runTimerSaga();
+}

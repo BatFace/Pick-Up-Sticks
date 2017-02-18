@@ -4,9 +4,10 @@ import calculateSticks from './stickLayerOuter';
 
 export default class SticksSVG{
     constructor(){
-        this.create = (el, props, state) => {
-            const gameArea = calculateGameArea(el),
-                dataSet = calculateSticks(props.gameLevel, gameArea);
+        this.gameArea = {};
+
+        this.create = (el, props) => {
+            this.gameArea = calculateGameArea(el);
 
             this.svg = d3.select(el)
                 .classed("svg-container", true)
@@ -14,18 +15,19 @@ export default class SticksSVG{
                 .classed("svg-content-responsive", true)
                 .attr("preserveAspectRatio", "none")
                 .attr("viewBox", "0 0 "
-                    + gameArea.gameAreaBounds.width
+                    + this.gameArea.gameAreaBounds.width
                     + " "
-                    + gameArea.gameAreaBounds.height);
+                    + this.gameArea.gameAreaBounds.height);
 
-            this.update(el, props, dataSet, gameArea);
+            this.update(el, props);
         };
 
-        this.update = (el, props, dataSet, gameArea) => {
-            this._drawSticks(el, props, dataSet, gameArea);
+        this.update = (el, props) => {
+            const dataSet = calculateSticks(props.gameLevel, this.gameArea)
+            this._drawSticks(el, props, dataSet);
         };
 
-        this._drawSticks = function(el, props, data, gameArea) {
+        this._drawSticks = function(el, props, data) {
             const rectangles = d3.select(el)
                                  .select("svg")
                                  .selectAll("rect")
@@ -42,16 +44,16 @@ export default class SticksSVG{
                 .attr("y", function (d) {
                     return d.y;
                 })
-                .attr("width", gameArea.stickWidth)
-                .attr("height", gameArea.stickLength)
+                .attr("width", this.gameArea.stickWidth)
+                .attr("height", this.gameArea.stickLength)
                 .attr("transform", function (d) {
                     return 'rotate('
                         + (d.rotation * (180 / Math.PI)) + ' '
                         + d.x + ' ' + d.y + ')';
                 })
                 .attr("stroke", "black")
-                .attr("stroke-width", gameArea.strokeWidth)
-                .attr("stroke-dasharray", gameArea.strokeDashArray)
+                .attr("stroke-width", this.gameArea.strokeWidth)
+                .attr("stroke-dasharray", this.gameArea.strokeDashArray)
                 .attr("fill", function (d) {
                     return d.color;
                 })

@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { INIT, PAUSED, ACTIVE, setGameState } from '../actions/gameStateAction';
-import { start, stop, reset } from '../actions/timerAction';
+import { resetSticksCount } from '../actions/sticksAction';
 
 export class Buttons extends React.Component {
+    // TODO: Disallow or handle play/pause when in won and lost game states
     render() {
         return (
             <div id="buttonsContainer">
@@ -22,20 +23,17 @@ export class Buttons extends React.Component {
     }
 
     restartGame() {
-        this.props.setGameState(INIT);
-        this.props.resetTimer();
+        this.props.resetSticksCount();
     }
 
     togglePlayGame() {
-    const {gameState} = this.props;
-
-        debugger;
-        if(gameState.name === PAUSED || gameState.name === INIT) {
-            this.props.setGameState(ACTIVE);
-        } else {
-            this.props.setGameState(PAUSED);
+        const {gameState} = this.props;
+            if(gameState.name === PAUSED || gameState.name === INIT) {
+                this.props.setGameState(ACTIVE);
+            } else {
+                this.props.setGameState(PAUSED);
+            }
         }
-    }
 }
 
 function mapStateToProps(state) {
@@ -49,14 +47,8 @@ var mapDispatchToProps = (dispatch) => {
         setGameState: (newGameState) => {
             dispatch(setGameState(newGameState));
         },
-        startTimer: () => {
-            dispatch(start());
-        },
-        stopTimer: () => {
-            dispatch(stop());
-        },
-        resetTimer: () => {
-            dispatch(reset());
+        resetSticksCount: () => {
+            dispatch(resetSticksCount());
         }
     }
 };
