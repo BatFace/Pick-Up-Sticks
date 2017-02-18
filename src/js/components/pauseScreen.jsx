@@ -15,12 +15,14 @@ export class PauseScreen extends React.Component {
     }
 
     render() {
+        const { message } = this.props.gameState;
+
         return (
             <div id="pauseScreen"
                  style={this.getStyle()}
                  className="gameScreen">
                 <div id="pauseScreenText">
-                    <span className="active">{ this.props.gameState.message }</span>
+                    <span className="active">{ message }</span>
                 </div>
             </div>
         );

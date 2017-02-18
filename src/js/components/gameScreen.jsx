@@ -21,12 +21,14 @@ export class GameScreen extends React.Component {
 
     componentDidMount() {
         const el = ReactDOM.findDOMNode(this.refs.gameArea);
+
         this.state.sticksSVG.create(el, this.props);
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.createdAt > this.props.createdAt){
             const el = ReactDOM.findDOMNode(this.refs.gameArea);
+
             this.state.sticksSVG.update(el, nextProps);
         }
     }
