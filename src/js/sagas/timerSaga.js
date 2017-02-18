@@ -7,7 +7,7 @@ import 'babel-polyfill';
 
 // Based on http://stackoverflow.com/a/37693674
 function* runTimer() {
-    yield call(delay, 1000);
+    yield call(delay, 100);
     yield put(timerActions.tick());
     const timer = yield select(state => state.timer);
 

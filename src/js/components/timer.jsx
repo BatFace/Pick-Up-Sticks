@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { getTimeInSeconds } from '../reducers/timerReducer';
 
 export const Timer = ({ time }) => (
     <div id="timerContainer">
@@ -8,8 +9,10 @@ export const Timer = ({ time }) => (
 );
 
 function mapStateToProps(state) {
+    const timeInSeconds = getTimeInSeconds(state.timer);
+
     return {
-        time: state.timer.seconds
+        time: timeInSeconds
     }
 }
 

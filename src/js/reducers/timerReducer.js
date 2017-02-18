@@ -4,7 +4,7 @@ import { SET_NEW_STICKS_COUNT, RESET_STICKS_COUNT } from '../actions/sticksActio
 
 export const initialState = {
     status: 'Paused',
-    seconds: 30
+    centiseconds: 300
 };
 
 export default (
@@ -22,13 +22,13 @@ export default (
                 status: 'Paused'
             });
         case TICK_TIMER:
-            if(state.seconds - 1 > 0) {
+            if(state.centiseconds - 1 > 0) {
                 return Object.assign({}, state, {
-                    seconds: state.seconds - 1
+                    centiseconds: state.centiseconds - 1
                 });
             } else {
                 return Object.assign({}, state, {
-                    seconds: 0,
+                    centiseconds: 0,
                     status: 'Finished'
                 });
             }
@@ -41,5 +41,7 @@ export default (
     }
 }
 
-export const getStatus = (state) => state.status;
+export function getTimeInSeconds(state) {
+    return (state.centiseconds / 10).toFixed(1);
+}
 
