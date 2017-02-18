@@ -108,8 +108,18 @@ html, body, input {
       padding: 2%;
     }
 
-    input:invalid {
-      background-color: $invalidInputColor;
+    .levelNumericControl {
+      animation: pulse 0.2s;
+      animation-iteration-count: 5;
+    }
+
+    @keyframes pulse {
+      0% {
+        background-color: #FFF;
+      }
+      100% {
+        background-color: #FF898C;
+      }
     }
 
     .buttonText {

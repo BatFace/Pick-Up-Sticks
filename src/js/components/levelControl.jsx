@@ -5,20 +5,37 @@ import { setNewSticksCount } from '../actions/sticksAction';
 export class LevelControl extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            gameLevel: this.props.gameLevel,
+            shouldPulse: this.props.isMax
+        }
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.gameLevel !== this.props.gameLevel) {
+            this.setState({
+                gameLevel: nextProps.gameLevel,
+                shouldPulse: nextProps.isMax
+            });
+        }
     }
 
     render() {
+        const { shouldPulse, setSticksCount} = this.props,
+            { gameLevel } = this.state;
+
         return (
             <div id="gameLevelForm">
                 <div id="levelDisplayContainer"> Level
-                    <input title="levelNumericControl"
+                    <input className={shouldPulse ? 'maxLevel' : ''}
                            type="number"
-                            id="levelNumericControl"
-                            min="1"
-                            max="999"
-                            step="1"
-                            defaultValue={ this.props.gameLevel }
-                            onChange={ this.props.setSticksCount }/>
+                           id="levelNumericControl"
+                           min="1"
+                           max="999"
+                           step="1"
+                           value={ gameLevel }
+                           onChange={ setSticksCount }/>
                 </div>
             </div>
         );
@@ -27,7 +44,8 @@ export class LevelControl extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        gameLevel: state.sticks.initialSticksCount
+        gameLevel: state.sticks.initialSticksCount,
+        shouldPulse: state.sticks.initialSticksCount === 999
     };
 }
 
@@ -43,10 +61,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(LevelControl)
-
-// TODO: Pulse level display on gameState.WON
-// function pulseLevelDisplay(){
-//     $("#levelNumericControl")
-//         .fadeOut(100).fadeIn(100)
-//         .fadeOut(100).fadeIn(100);
-// }

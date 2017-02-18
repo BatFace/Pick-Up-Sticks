@@ -83,8 +83,14 @@ html, body, input {
       text-shadow: 2px 2px #FFF;
       width: 100%;
       padding: 2%; }
-    .rightSide .innerRightSubContainer input:invalid {
-      background-color: #FFC0CB; }
+    .rightSide .innerRightSubContainer .levelNumericControl {
+      animation: pulse 0.2s;
+      animation-iteration-count: 5; }
+@keyframes pulse {
+  0% {
+    background-color: #FFF; }
+  100% {
+    background-color: #FF898C; } }
     .rightSide .innerRightSubContainer .buttonText {
       display: table-cell;
       vertical-align: middle; }
@@ -110,7 +116,7 @@ html, body, input {
     .rightSide .innerRightSubContainer #levelDisplayContainer {
       color: #FF26C9;
       position: absolute; }
-    .rightSide .innerRightSubContainer .activeButton, .rightSide .innerRightSubContainer #playPauseButton.enabled:active, .rightSide .innerRightSubContainer #restartButton:active {
+    .rightSide .innerRightSubContainer .activeButton, .rightSide .innerRightSubContainer #playPauseButton:active, .rightSide .innerRightSubContainer #restartButton:active {
       position: relative;
       top: 6px; }
     .rightSide .innerRightSubContainer #playPauseButton {
@@ -120,15 +126,16 @@ html, body, input {
       -webkit-box-shadow: 0 6px 0 #569430;
       -moz-box-shadow: 0 6px 0 #569430;
       box-shadow: 0 6px 0 #569430; }
-    .rightSide .innerRightSubContainer #playPauseButton:active.enabled {
+    .rightSide .innerRightSubContainer #playPauseButton:active {
       -webkit-box-shadow: 0 3px 0 #22550f;
       -moz-box-shadow: 0 3px 0 #22550f;
       box-shadow: 0 3px 0 #22550f; }
     .rightSide .innerRightSubContainer #playPauseButton.disabled {
+      pointer-events: none;
       background-color: #a4d885;
-      -webkit-box-shadow: 0 3px 0 #6CBB3C;
-      -moz-box-shadow: 0 3px 0 #6CBB3C;
-      box-shadow: 0 3px 0 #6CBB3C; }
+      -webkit-box-shadow: 0 6px 0 #6CBB3C;
+      -moz-box-shadow: 0 6px 0 #6CBB3C;
+      box-shadow: 0 6px 0 #6CBB3C; }
     .rightSide .innerRightSubContainer #restartButton {
       background-color: #26C9FF;
       background-image: url(../images/restart.svg);
