@@ -4,12 +4,36 @@ import { INIT, PAUSED, ACTIVE, setGameState } from '../actions/gameStateAction';
 import { resetSticksCount } from '../actions/sticksAction';
 
 export class Buttons extends React.Component {
-    // TODO: Disallow or handle play/pause when in won and lost game states
+
+    getPlayPauseDisabledClass() {
+        return !this.props.gameState.canPlayPause ? 'disabled' : '';
+    }
+
+    restartGame() {
+        this.props.resetSticksCount();
+    }
+
+    togglePlayGame() {
+        const {gameState} = this.props;
+        if(gameState.name === PAUSED || gameState.name === INIT) {
+            this.props.setGameState(ACTIVE);
+        } else {
+            this.props.setGameState(PAUSED);
+        }
+    }
+
     render() {
         return (
             <div id="buttonsContainer">
-                <div className="gameButton enabled" id="playPauseButton" onClick={ this.togglePlayGame.bind(this) }></div>
-                <div className="gameButton" id="restartButton" onClick={ this.restartGame.bind(this) }></div>
+                <div className={"gameButton " + this.getPlayPauseDisabledClass()}
+                     id="playPauseButton"
+                     onClick={this.togglePlayGame.bind(this)}>
+
+                </div>
+                <div className="gameButton"
+                     id="restartButton"
+                     onClick={this.restartGame.bind(this)}>
+                </div>
             </div>
         );
     }
@@ -21,19 +45,6 @@ export class Buttons extends React.Component {
             })
         }
     }
-
-    restartGame() {
-        this.props.resetSticksCount();
-    }
-
-    togglePlayGame() {
-        const {gameState} = this.props;
-            if(gameState.name === PAUSED || gameState.name === INIT) {
-                this.props.setGameState(ACTIVE);
-            } else {
-                this.props.setGameState(PAUSED);
-            }
-        }
 }
 
 function mapStateToProps(state) {

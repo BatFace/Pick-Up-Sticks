@@ -156,14 +156,15 @@ html, body, input {
       @include box-shadow(0, $buttonUnPressedPx, 0, darken($playButtonColor, 10%));
     }
 
-    #playPauseButton:active.enabled {
+    #playPauseButton:active {
       @extend .activeButton;
       @include box-shadow(0, $buttonPressedPx, 0, darken($playButtonActiveColor, 10%));
     }
 
     #playPauseButton.disabled {
+      pointer-events: none;
       background-color: lighten($playButtonColor, 20%);
-      @include box-shadow(0, $buttonPressedPx, 0, $playButtonColor);
+      @include box-shadow(0, $buttonUnPressedPx, 0, $playButtonColor);
     }
 
     #restartButton {
