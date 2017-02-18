@@ -83,7 +83,7 @@ html, body, input {
       text-shadow: 2px 2px #FFF;
       width: 100%;
       padding: 2%; }
-    .rightSide .innerRightSubContainer .levelNumericControl {
+    .rightSide .innerRightSubContainer .maxLevel {
       animation: pulse 0.2s;
       animation-iteration-count: 5; }
 @keyframes pulse {
