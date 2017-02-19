@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { getTimeInSeconds } from '../reducers/timerReducer';
 
 export const Timer = ({ time }) => (
-    <div id="timerContainer">
-        <div id="timerDiv">{ time }</div>
+    <div className="timerContainer">
+        <div className="timerDiv">{ time }</div>
     </div>
 );
 

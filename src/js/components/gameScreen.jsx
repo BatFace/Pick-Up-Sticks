@@ -15,7 +15,7 @@ export class GameScreen extends React.Component {
 
     render() {
         return (
-            <div id="gameArea" ref="gameArea" className="gameScreen"></div>
+            <div ref="gameArea" className="gameArea gameScreen"></div>
         );
     }
 

@@ -25,14 +25,12 @@ export class Buttons extends React.Component {
 
     render() {
         return (
-            <div id="buttonsContainer">
-                <div className={"gameButton " + this.getPlayPauseDisabledClass()}
-                     id="playPauseButton"
+            <div className="buttonsContainer">
+                <div className={"playPauseButton gameButton " + this.getPlayPauseDisabledClass()}
                      onClick={this.togglePlayGame.bind(this)}>
 
                 </div>
-                <div className="gameButton"
-                     id="restartButton"
+                <div className="restartButton gameButton"
                      onClick={this.restartGame.bind(this)}>
                 </div>
             </div>

@@ -18,10 +18,9 @@ export class PauseScreen extends React.Component {
         const { message } = this.props.gameState;
 
         return (
-            <div id="pauseScreen"
-                 style={this.getStyle()}
-                 className="gameScreen">
-                <div id="pauseScreenText">
+            <div className="pauseScreen gameScreen"
+                style={this.getStyle()}>
+                <div className="pauseScreenText">
                     <span className="active">{ message }</span>
                 </div>
             </div>

@@ -68,7 +68,7 @@ html, body, input {
     padding-bottom:28.33%;
     @extend .verticalAlignAndCenter;
 
-    #pauseScreenText {
+    .pauseScreenText {
       background: none;
       text-align: left;
       @extend .verticalAlignAndCenter;
@@ -99,9 +99,7 @@ html, body, input {
     .title {
       @extend .verticalAlignAndCenter;
       background: $yellow;
-      border-color: $fuchsia;
-      border-style: dotted;
-      border-width: thick;
+      border: thick dotted $fuchsia;
       color: $fuchsia;
       text-shadow: 2px 2px #FFF;
       width: 100%;
@@ -142,13 +140,13 @@ html, body, input {
       vertical-align: middle;
     }
 
-    #buttonsContainer {
+    .buttonsContainer {
       height: 60%;
       width: 100%;
       @extend .verticalAlignAndCenter;
     }
 
-    #levelDisplayContainer {
+    .levelDisplayContainer {
       color: $fuchsia;
       position: absolute;
       @extend .verticalAlignAndCenter;
@@ -159,37 +157,37 @@ html, body, input {
       top: 6px;
     }
 
-    #playPauseButton {
+    .playPauseButton {
       background-color: $playButtonColor;
       background-image: url(../images/play.svg);
       background-size: 100% 100%;
       @include box-shadow(0, $buttonUnPressedPx, 0, darken($playButtonColor, 10%));
     }
 
-    #playPauseButton:active {
+    .playPauseButton:active {
       @extend .activeButton;
       @include box-shadow(0, $buttonPressedPx, 0, darken($playButtonActiveColor, 10%));
     }
 
-    #playPauseButton.disabled {
+    .playPauseButton.disabled {
       pointer-events: none;
       background-color: lighten($playButtonColor, 20%);
       @include box-shadow(0, $buttonUnPressedPx, 0, $playButtonColor);
     }
 
-    #restartButton {
+    .restartButton {
       background-color: $restartButtonColor;
       background-image: url(../images/restart.svg);
       background-size: 100% 100%;
       @include box-shadow(0, $buttonUnPressedPx, 0, darken($restartButtonColor, 10%));
     }
 
-    #restartButton:active {
+    .restartButton:active {
       @extend .activeButton;
       @include box-shadow(0, $buttonPressedPx, 0, darken($restartButtonColor, 10%));
     }
 
-    #timerContainer {
+    .timerContainer {
       width: 85%;
       height: 100%;
       @extend .verticalAlignAndCenter;
@@ -197,7 +195,7 @@ html, body, input {
       background-size: 100% 100%;
     }
 
-    #timerDiv {
+    .timerDiv {
       color: $fuchsia;
       @extend .verticalAlignAndCenter;
     }
