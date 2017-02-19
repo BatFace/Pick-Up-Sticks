@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha ./src/js/tests",
-    "staticCopyOps": "mkdir -p dist && cp src/index.html dist/ & cp -R src/css dist & cp -R src/images dist",
     "babel": "babel src -d dist",
+    "copyStaticFiles" : "cp src/index.html dist/ & cp src/**/*.css dist/css/ & cp -R src/images dist/",
+    "staticCopyOps": "mkdir -p dist/css && npm run copyStaticFiles",
     "js": "browserify ./src/app.jsx -o ./dist/app.js -t",
     "build": "npm run staticCopyOps && npm run js",
     "src:watch": "onchange 'src/**/**' -v -- npm run build"

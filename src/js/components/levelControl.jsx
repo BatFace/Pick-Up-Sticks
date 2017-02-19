@@ -28,7 +28,7 @@ export class LevelControl extends React.Component {
         return (
             <div className="gameLevelForm">
                 <div className="levelDisplayContainer"> Level
-                    <input className={"levelNumericControl " + (shouldPulse ? 'maxLevel' : '')}
+                    <input className={shouldPulse ? 'maxLevel' : ''}
                            type="number"
                            min="1"
                            max="999"
