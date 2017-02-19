@@ -1,5 +1,4 @@
 import d3 from 'd3';
-import { WON } from '../actions/gameStateAction';
 import calculateSticks from './stickLayerOuter';
 
 export default class SticksSVG{
@@ -60,7 +59,7 @@ export default class SticksSVG{
                 .on("click", function (d, i) {
                     if (i === data.length-1) {
                         if (i === 0) {
-                            props.setGameState(WON);
+                            props.winGame();
                         }
 
                         data.pop();

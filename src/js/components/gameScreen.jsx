@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
-import { setGameState } from '../actions/gameStateAction';
+import * as gameActions from '../actions/gameStateAction';
 import sticksSVG from '../classes/sticksSvg';
 
 export class GameScreen extends React.Component {
@@ -45,8 +45,8 @@ function mapStateToProps(state) {
 
 var mapDispatchToProps = (dispatch) => {
     return {
-        setGameState: (newGameState) => {
-            dispatch(setGameState(newGameState));
+        winGame: () => {
+            dispatch(gameActions.winGame());
         }
     }
 };

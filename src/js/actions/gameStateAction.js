@@ -2,13 +2,23 @@ export const INIT = 'init';
 export const PAUSED = 'paused';
 export const WON = 'won';
 export const LOST = 'lost';
-export const ACTIVE = 'active';
+export const IN_PLAY = 'active';
 
-// TODO: Add actions for all the game states individually and import with * as gameStateActions
-
-export function setGameState(newState) {
+export function pauseGame() {
     return {
-        type: newState,
+        type: PAUSED,
+    };
+}
+
+export function winGame() {
+    return {
+        type: WON,
+    };
+}
+
+export function playGame() {
+    return {
+        type: IN_PLAY,
     };
 }
 

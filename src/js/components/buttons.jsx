@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { INIT, PAUSED, ACTIVE, setGameState } from '../actions/gameStateAction';
+import * as gameActions from '../actions/gameStateAction';
 import { resetSticksCount } from '../actions/sticksAction';
 
 export class Buttons extends React.Component {
@@ -14,11 +14,12 @@ export class Buttons extends React.Component {
     }
 
     togglePlayGame() {
-        const {gameState} = this.props;
-        if(gameState.name === PAUSED || gameState.name === INIT) {
-            this.props.setGameState(ACTIVE);
+        const { gameState } = this.props;
+        if(gameState.name === gameActions.PAUSED
+            || gameState.name === gameActions.INIT) {
+            this.props.playGame();
         } else {
-            this.props.setGameState(PAUSED);
+            this.props.pauseGame();
         }
     }
 
@@ -55,8 +56,11 @@ function mapStateToProps(state) {
 
 var mapDispatchToProps = (dispatch) => {
     return {
-        setGameState: (newGameState) => {
-            dispatch(setGameState(newGameState));
+        playGame: () => {
+            dispatch(gameActions.playGame());
+        },
+        pauseGame: () => {
+            dispatch(gameActions.pauseGame());
         },
         resetSticksCount: () => {
             dispatch(resetSticksCount());

@@ -18,7 +18,7 @@ function* runTimer() {
 
 export default function* runTimerSaga() {
     const workerTask = yield takeEvery([
-        gameStateActions.ACTIVE,
+        gameStateActions.IN_PLAY,
         timerActions.TICK_TIMER
     ], runTimer);
 

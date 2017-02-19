@@ -1,4 +1,4 @@
-import { INIT, PAUSED, WON, LOST, ACTIVE } from '../actions/gameStateAction';
+import { INIT, PAUSED, WON, LOST, IN_PLAY } from '../actions/gameStateAction';
 import { RESET_STICKS_COUNT, SET_NEW_STICKS_COUNT } from '../actions/sticksAction';
 
 const intialState = {
@@ -9,9 +9,9 @@ const intialState = {
 
 export default function gameState (state = intialState, action) {
     switch (action.type) {
-        case ACTIVE:
+        case IN_PLAY:
             return {
-                name: ACTIVE,
+                name: IN_PLAY,
                 canPlayPause: true,
                 message : ''
             };

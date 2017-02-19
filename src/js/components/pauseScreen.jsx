@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { ACTIVE } from '../actions/gameStateAction';
+import { IN_PLAY } from '../actions/gameStateAction';
 
 
 export class PauseScreen extends React.Component {
@@ -9,7 +9,7 @@ export class PauseScreen extends React.Component {
     }
 
     getStyle(){
-        const displayValue = this.props.gameState.name !== ACTIVE ? 'block' : 'none';
+        const displayValue = this.props.gameState.name !== IN_PLAY ? 'block' : 'none';
 
         return { display: displayValue };
     }
