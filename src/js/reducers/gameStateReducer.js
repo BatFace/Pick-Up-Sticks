@@ -1,13 +1,13 @@
 import { INIT, PAUSED, WON, LOST, IN_PLAY } from '../actions/gameStateAction';
 import { RESET_STICKS_COUNT, SET_NEW_STICKS_COUNT } from '../actions/sticksAction';
 
-const intialState = {
+const initialState = {
     name: INIT,
     canPlayPause: true,
     message: 'Let\'s play!'
 };
 
-export default function gameState (state = intialState, action) {
+export default function gameState (state = initialState, action) {
     switch (action.type) {
         case IN_PLAY:
             return {
@@ -36,7 +36,7 @@ export default function gameState (state = intialState, action) {
         case SET_NEW_STICKS_COUNT:
         case RESET_STICKS_COUNT:
         case INIT:
-            return intialState;
+            return initialState;
         default:
             return state;
     }
