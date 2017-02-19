@@ -1,4 +1,4 @@
-import { START_TIMER, STOP_TIMER, TICK_TIMER, RESET_TIMER } from '../actions/timerAction';
+import { TICK_TIMER } from '../actions/timerAction';
 import { PAUSED, IN_PLAY, WON } from '../actions/gameStateAction';
 import { SET_NEW_STICKS_COUNT, RESET_STICKS_COUNT } from '../actions/sticksAction';
 
@@ -11,13 +11,11 @@ export default (
     state = initialState, action) => {
     switch (action.type) {
         case IN_PLAY:
-        case START_TIMER:
             return Object.assign({}, state, {
                 status: 'Running'
             });
         case WON:
         case PAUSED:
-        case STOP_TIMER:
             return Object.assign({}, state, {
                 status: 'Paused'
             });
@@ -34,7 +32,6 @@ export default (
             }
         case SET_NEW_STICKS_COUNT:
         case RESET_STICKS_COUNT:
-        case RESET_TIMER:
             return Object.assign({}, initialState);
         default:
             return state
