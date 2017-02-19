@@ -14,7 +14,9 @@ export default function sticksCount (state = defaultState, action) {
                 createdAt: Date.now()
             });
         case SET_NEW_STICKS_COUNT:
-            const newSticksCount = Math.min(action.count, 999);
+            // Enforcing min of 1 by count || 1. Enforcing max of 999
+            // by Math.min(count, 999)
+            const newSticksCount = Math.min(action.count || 1, 999);
 
             return Object.assign({}, state, {
                 initialSticksCount: newSticksCount,
