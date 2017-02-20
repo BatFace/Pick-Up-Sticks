@@ -4,7 +4,7 @@
   "description": "An HTML/JavaScript implementation of the game Pick-up-sticks.",
   "main": "app.js",
   "scripts": {
-    "test": "mocha ./src/js/tests",
+    "test": "mocha --compilers js:babel-core/register ./src/js/tests/**/*",
     "babel": "babel src -d dist",
     "copyStaticFiles" : "cp src/index.html dist/ & cp src/**/*.css dist/css/ & cp -R src/images dist/",
     "staticCopyOps": "mkdir -p dist/css && npm run copyStaticFiles",
