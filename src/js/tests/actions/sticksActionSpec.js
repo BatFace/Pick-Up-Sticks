@@ -1,5 +1,4 @@
-import chai from 'chai';
-var assert = chai.assert;
+import { assert } from 'chai';
 
 import * as sticksAtion from '../../actions/sticksAction';
 

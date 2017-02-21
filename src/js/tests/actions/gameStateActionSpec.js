@@ -1,5 +1,4 @@
-import chai from 'chai';
-var assert = chai.assert;
+import { assert } from 'chai';
 
 import * as gameActions from '../../actions/gameStateAction';
 

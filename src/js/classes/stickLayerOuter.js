@@ -8,18 +8,18 @@ const ONE_SEVEN_FIVE_DEG = FIVE_DEG * 35;
 const NINETY_DEG = FIVE_DEG * 18;
 const TEN_DEG = FIVE_DEG * 2;
 
-export default function calculateSticks(gameLevel, gameArea) {
+export function calculateSticks(gameLevel, gameArea) {
     let dataSet = [],
         rotation = 0;
 
     for (var i = 0; i < gameLevel; i++) {
         let newStick, oldStick;
-        const s = getRandomNumberInRange(LOW_CROSSING_LIMIT, HIGH_CROSSING_LIMIT);
-        const t = getRandomNumberInRange(LOW_CROSSING_LIMIT, HIGH_CROSSING_LIMIT);
+        const s = _getRandomNumberInRange(LOW_CROSSING_LIMIT, HIGH_CROSSING_LIMIT);
+        const t = _getRandomNumberInRange(LOW_CROSSING_LIMIT, HIGH_CROSSING_LIMIT);
 
         if (i !== 0) {
             oldStick = dataSet[(i - 1)];
-            rotation = newStickNotNearParallelLast(dataSet[(i - 1)].rotation);
+            rotation = _newStickNotNearParallelLast(dataSet[(i - 1)].rotation);
         }
         else {
             // To place first stick, first calculate the position of a dummy old stick
@@ -28,13 +28,13 @@ export default function calculateSticks(gameLevel, gameArea) {
             var x = gameArea.gameAreaMiddle[0] + gameArea.stickLength / 2;
             var y = gameArea.gameAreaMiddle[1];
 
-            oldStick = new Stick(0.5, 0.5, NINETY_DEG, STICK_COLORS[getRandomIntInRange(0, 4)], x, y);
-            rotation = getRandomNumberInRange(FIVE_DEG, ONE_SEVEN_FIVE_DEG);
+            oldStick = new Stick(0.5, 0.5, NINETY_DEG, STICK_COLORS[_getRandomIntInRange(0, 4)], x, y);
+            rotation = _getRandomNumberInRange(FIVE_DEG, ONE_SEVEN_FIVE_DEG);
         }
 
         newStick = generateNewStickXY(
             oldStick,
-            new Stick(s, t, rotation, STICK_COLORS[getRandomIntInRange(0, 4)]),
+            new Stick(s, t, rotation, STICK_COLORS[_getRandomIntInRange(0, 4)]),
             gameArea
         );
         dataSet.push(newStick);
@@ -42,25 +42,25 @@ export default function calculateSticks(gameLevel, gameArea) {
     return dataSet;
 }
 
-function getRandomIntInRange(min, max) {
+function _getRandomIntInRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function getRandomNumberInRange(min, max) {
+function _getRandomNumberInRange(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-function isInRange(x, min, max) {
+function _isInRange(x, min, max) {
     return (x >= min && x < max);
 }
 
-function newStickNotNearParallelLast(lastRot) {
-    const newRotation = getRandomNumberInRange(FIVE_DEG, ONE_SEVEN_FIVE_DEG),
+function _newStickNotNearParallelLast(lastRot) {
+    const newRotation = _getRandomNumberInRange(FIVE_DEG, ONE_SEVEN_FIVE_DEG),
         lowerBound = (lastRot - TEN_DEG),
         upperBound = (lastRot + TEN_DEG);
 
-    if (isInRange(newRotation, lowerBound, upperBound)) {
-        return newStickNotNearParallelLast(lastRot);
+    if (_isInRange(newRotation, lowerBound, upperBound)) {
+        return _newStickNotNearParallelLast(lastRot);
     }
     else {
         return newRotation;
@@ -70,7 +70,7 @@ function newStickNotNearParallelLast(lastRot) {
 function generateNewStickXY(oldStick, newStick, gameArea) {
     let aOld, bOld, aNew, bNew;
 
-    if (isInRange(oldStick.rotation, FIVE_DEG, NINETY_DEG)) {
+    if (_isInRange(oldStick.rotation, FIVE_DEG, NINETY_DEG)) {
         aOld = -(gameArea.stickLength * Math.sin(oldStick.rotation));
         bOld = (gameArea.stickLength * Math.cos(oldStick.rotation));
     }
@@ -82,7 +82,7 @@ function generateNewStickXY(oldStick, newStick, gameArea) {
         bOld = -(gameArea.stickLength * Math.sin(oldRotationMinusNinetyDeg));
     }
 
-    if (isInRange(newStick.rotation, FIVE_DEG, NINETY_DEG)) {
+    if (_isInRange(newStick.rotation, FIVE_DEG, NINETY_DEG)) {
         aNew = gameArea.stickLength * Math.sin(newStick.rotation);
         bNew = -gameArea.stickLength * Math.cos(newStick.rotation);
     }
@@ -103,10 +103,10 @@ function generateNewStickXY(oldStick, newStick, gameArea) {
     const stickTopX = newStick.x - newStick.propAlongStickLengthToCrossNext * aNew,
         stickTopY = newStick.y - newStick.propAlongStickLengthToCrossNext * bNew;
 
-    return forceStickWithinBounds(newStick, stickTopX, stickTopY, gameArea);
+    return _forceStickWithinBounds(newStick, stickTopX, stickTopY, gameArea);
 }
 
-function forceStickWithinBounds(newStick, stickTopX, stickTopY, gameArea) {
+function _forceStickWithinBounds(newStick, stickTopX, stickTopY, gameArea) {
     // If new stick end exceeds any of the game area bound edges,
     // set its crossing point for the next stick to be the same as
     // the point at which it is crossing the stick laid prior to it

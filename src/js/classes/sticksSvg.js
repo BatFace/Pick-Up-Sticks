@@ -1,12 +1,13 @@
 import d3 from 'd3';
-import calculateSticks from './stickLayerOuter';
+import { calculateSticks } from './stickLayerOuter';
+import GameArea from './gameArea';
 
 export default class SticksSVG{
     constructor(){
         this.gameArea = {};
 
         this.create = (el, props) => {
-            this.gameArea = calculateGameArea(el);
+            this.gameArea = new GameArea(el);
 
             this.svg = d3.select(el)
                 .classed("svg-container", true)
@@ -73,24 +74,3 @@ export default class SticksSVG{
         };
     }
 };
-
-function calculateGameArea(el){
-    const gameAreaBounds = el.getBoundingClientRect();
-    const gameAreaMiddle = [(gameAreaBounds.right - gameAreaBounds.left) / 2,
-        (gameAreaBounds.bottom - gameAreaBounds.top) / 2];
-    const stickLength = gameAreaBounds.height / 3.5;
-    const proposedStickWidth = stickLength / 16;
-    const stickWidth = proposedStickWidth > 12 ? proposedStickWidth : 12;
-    const strokeLength = stickLength + stickWidth;
-    const strokeDashArray = strokeLength + "," + strokeLength;
-    const strokeWidth = stickWidth / 5;
-
-    return {
-        gameAreaBounds: gameAreaBounds,
-        gameAreaMiddle: gameAreaMiddle,
-        stickLength: stickLength,
-        stickWidth: stickWidth,
-        strokeDashArray: strokeDashArray,
-        strokeWidth: strokeWidth
-    };
-}
