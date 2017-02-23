@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
-  <g stroke="null" id="play">
-    <path stroke="#fff" id="playTriangle" d="m24.543392,25.803066l26.130222,24.196735l-26.130222,24.197136l0,-48.393871l0,0l0,0z" fill="#fff"/>
-    <rect stroke="#fff" id="playRect1" fill="#fff"  x="55.687568" y="25.82618" width="7.598975" height="48.347644"/>
-    <rect stroke="#fff" id="playRect2" fill="#fff"  x="67.857635" y="25.826181" width="7.598975" height="48.347644"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M24.5 25.8L50.7 50 24.5 74.2V25.8zm31.2 0h7.6v48.3h-7.6zm12.2 0h7.6v48.3h-7.6z" stroke="#fff" fill="#fff"/></svg>
